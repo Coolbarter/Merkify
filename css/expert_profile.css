@@ -96,6 +96,7 @@ body {
     font-family: 'Philosopher', sans-serif;
     font-weight: 700;
     background: linear-gradient(135deg, var(--primary-brown), var(--accent-gold));
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
