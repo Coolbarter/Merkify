@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Become an Expert - Mystical Services</title>
+    <link rel="stylesheet" href="./css/become_expert.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="nav-items">
+            <div class="nav-item avatar">
+                <img src="./images/man3.jpg" alt="User Profile">
+                <div class="profile-menu" id="profileMenu">
+                    <div class="menu-header">
+                        <img src="./images/man3.jpg" alt="User Profile">
+                        <div class="user-info">
+                            <h4>John Doe</h4>
+                            <p>Premium Member</p>
+                        </div>
+                    </div>
+                    <a href="./become_expert.html" class="become-expert-btn">Become an Expert</a>
+                    <div class="menu-items">
+                        <a href="#"><i class="profile-icon">👤</i> My Profile</a>
+                        <a href="#"><i class="profile-icon">⚙️</i> Settings</a>
+                        <a href="#"><i class="profile-icon">💰</i> Billing</a>
+                        <a href="#"><i class="profile-icon">🔔</i> Notifications</a>
+                        <div class="menu-divider"></div>
+                        <a href="#" class="logout"><i class="profile-icon">🚪</i> Logout</a>
+                    </div>
+                </div>
+            </div>
+             
+            <div class="nav-item">⚡</div>
+            <div class="nav-item">◇</div>
+            <div class="nav-item">✏</div>
+            <div class="nav-item">⚜</div>
+            <div class="nav-item">☘</div>
+            <div class="nav-item"><a href="./home_page.html">↪ Back to Home</a></div>
+        </div>
+        <div class="nav-bottom">
+            <div class="nav-item">↪</div>
+        </div>
+    </div>
+
+    <main class="content">
+        <div class="page-header">
+            <a href="./home_page.html" class="back-link">← Back to Home</a>
+            <h1>Become an Expert</h1>
+        </div>
+        <form id="expertForm" class="expert-form" action="/submit-expert" method="POST">
+            <div class="form-group">
+                <label for="expertise">Area of Expertise</label>
+                <select id="expertise" name="expertise" required>
+                    <option value="">Select your expertise</option>
+                    <option value="tarot">Tarot Reading</option>
+                    <option value="energy">Energy Healing</option>
+                    <option value="astrology">Astrology</option>
+                    <option value="numerology">Numerology</option>
+                    <option value="crystal">Crystal Healing</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="experience">Years of Experience</label>
+                <input type="number" id="experience" name="experience" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="bio">Professional Bio</label>
+                <textarea id="bio" name="bio" rows="5" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="certifications">Certifications (if any)</label>
+                <textarea id="certifications" name="certifications" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="rate">Hourly Rate ($)</label>
+                <input type="number" id="rate" name="rate" min="1" required>
+            </div>
+
+            <div class="form-group">
+                <label for="availability">Weekly Availability (hours)</label>
+                <input type="number" id="availability" name="availability" min="1" max="168" required>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Application</button>
+        </form>
+    </main>
+
+    <script src="./js/profile.js"></script>
+    <script src="./js/become_expert.js"></script>
+</body>
+</html>

@@ -1,0 +1,855 @@
+/* Import spiritual fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Philosopher:wght@400;700&display=swap');
+
+:root {
+    --primary-dark: #2D3047;
+    --primary-brown: #8B4513;
+    --accent-gold: #DAA520;
+    --text-dark: #2D3047;
+    --text-medium: #4F4B66;
+    --text-light: #817C9B;
+    --background-light: #F5F3F7;
+    --white: #ffffff;
+    --primary-bg: #F9F5FF;
+    --secondary-bg: #FFFFFF;
+    --accent-purple: #8B5CF6;
+    --accent-blue: #3B82F6;
+    --text-primary: #FFFFFF;
+    --text-secondary: #A0A0A0;
+    --accent-color: #8B5CF6;
+    --accent-hover: #7C3AED;
+    --review-bg: #F3EAFF;
+    --review-card-bg: #FFFFFF;
+    --review-text: #2D3047;
+    --review-quote: #8B5CF6;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    line-height: 1.8;
+}
+
+.content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.profile-header {
+    background: var(--background-light);
+    border-radius: 15px;
+    box-shadow: 0 4px 30px rgba(139, 92, 246, 0.1);
+    margin-bottom: 30px;
+    color: var(--text-primary);
+}
+
+.profile-cover {
+    height: 300px;
+    background: url('../images/bn.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-cover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('/images/sacred-geometry.png') center/cover;
+    opacity: 0.1;
+    mix-blend-mode: soft-light;
+}
+
+@keyframes gradientFlow {
+    0% { background-position: 0% 50% }
+    50% { background-position: 100% 50% }
+    100% { background-position: 0% 50% }
+    50% { background-position: 100% 50% }
+    100% { background-position: 0% 50% }
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px;
+    gap: 20px;
+    position: relative;
+    margin-top: -100px;
+    flex-wrap: wrap;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.profile-info h1 {
+    font-size: 3.2rem;
+    color: var(--primary-dark);
+    margin-bottom: 8px;  /* Reduced from 12px */
+    font-family: 'Philosopher', sans-serif;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary-brown), var(--accent-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-image {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.profile-image img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+}
+
+.status-badge {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: #34d399;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.name {
+    font-size: 2.5rem;
+    color: #2c1810;
+    letter-spacing: 0.5px;
+}
+
+.title {
+    font-family: 'Philosopher', 'Arial', sans-serif;
+    color: var(--primary-brown);
+    margin: 0 0 16px;  /* Adjusted margin for better spacing */
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;  /* Increased from 15px */
+    margin: 0 0 24px;  /* Adjusted margin */
+    align-items: center;
+    padding-left: 2px;  /* Slight offset to align with text */
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;  /* Slightly increased */
+    height: 44px; /* Slightly increased */
+    transition: all 0.3s ease;
+    background: rgba(139, 69, 19, 0.05); /* Subtle brown tint */
+    border-radius: 50%;
+    padding: 10px;
+    border: 1px solid rgba(139, 69, 19, 0.1); /* Subtle border */
+}
+
+.social-link:hover {
+    transform: translateY(-2px);
+    background: rgba(139, 69, 19, 0.1);
+    box-shadow: 0 4px 12px rgba(139, 69, 19, 0.15);
+}
+
+.social-link img {
+    width: 28px;    /* Adjusted for better fit */
+    height: 28px;   /* Adjusted for better fit */
+    object-fit: contain;
+    opacity: 0.85;  /* Slightly soften the icon */
+}
+
+.stats {
+    display: flex;
+    gap: 40px;
+    margin: 0;  /* Reset margin */
+    padding-top: 8px;  /* Add some space after social icons */
+    border-top: 1px solid rgba(139, 69, 19, 0.1);  /* Subtle separator */
+}
+
+.stat {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stat .value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark); /* Changed from text-primary to text-dark */
+}
+
+.stat .label {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.quick-info {
+    display: flex;
+    gap: 20px;
+    color: var(--text-medium);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.book-btn, 
+.dashboard-btn,
+.tab.active,
+.slot-btn {
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-align: center;
+    border: none;
+    background: var(--accent-color);
+    color: var(--white);
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(126, 107, 196, 0.2);
+}
+
+.book-btn:hover, 
+.dashboard-btn:hover,
+.tab.active:hover,
+.slot-btn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(126, 107, 196, 0.3);
+}
+
+.dashboard-btn {
+    background: transparent;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+}
+
+.dashboard-btn:hover {
+    background: var(--accent-color);
+    color: var(--white);
+}
+
+.profile-content {
+    background: var(--secondary-bg);
+    border-radius: 20px;
+    padding: 30px;
+    margin: 0 40px;
+}
+
+.tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    background: var(--white);
+    padding: 8px;
+    border-radius: 35px;
+    border: 1px solid rgba(126, 107, 196, 0.2);
+}
+
+.tab {
+    padding: 10px 24px;
+    border: none;
+    background: none;
+    font-size: 1rem;
+    color: var(--text-medium);
+    cursor: pointer;
+    transition: color 0.2s;
+    border-radius: 25px;
+    font-weight: 500;
+}
+
+.tab.active {
+    background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+    color: white;
+    position: relative;
+}
+
+.tab.active::after {
+    display: none;
+}
+
+.intro {
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.intro p {
+    font-size: 1.2rem;
+    color: var(--text-medium);
+    line-height: 1.8;
+}
+
+.expertise {
+    margin-bottom: 40px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.tag {
+    background: rgba(139, 69, 19, 0.1);
+    color: var(--primary-brown);
+    border: 1px solid rgba(122, 79, 59, 0.2);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.tag:hover {
+    background: rgba(193, 148, 92, 0.2);
+    transform: translateY(-2px);
+}
+
+.experience {
+    margin-bottom: 40px;
+}
+
+.experience ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+.experience li {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+    color: #4b5563;
+}
+
+.service-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.service-card {
+    background: var(--white);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(126, 107, 196, 0.2);
+    border-radius: 12px;
+    padding: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    color: var(--text-dark); /* Changed from text-primary to text-dark */
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+    box-shadow: 0 8px 25px rgba(126, 107, 196, 0.15);
+}
+
+.service-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('/images/mandala-pattern.png') center/contain no-repeat;
+    opacity: 0.03;
+    pointer-events: none;
+}
+
+.service-card h4 {
+    margin: 0 0 10px;
+    color: var(--primary-dark);
+    font-size: 1.3rem;
+    font-family: 'Philosopher', sans-serif;
+    margin-bottom: 1rem;
+}
+
+.duration {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+
+.price {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary-brown);
+    margin: 10px 0;
+}
+
+.description {
+    color: #4b5563;
+    margin: 15px 0;
+    line-height: 1.5;
+}
+
+.book-btn.small {
+    padding: 10px 24px;
+    font-size: 0.9rem;
+    width: auto;
+    margin: 10px auto;
+    display: block;
+}
+
+/* Calendar Styles */
+.availability-section,
+.calendar-grid,
+.time-header,
+.day-header,
+.time-slot,
+.calendar-cell {
+    display: none;
+}
+
+.schedule-btn {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto 0;
+    padding: 12px;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 8px;
+    color: #333;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.timezone-info {
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    margin-top: 12px;
+}
+
+.availability-header {
+    margin-bottom: 20px;
+}
+
+.availability-header h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #333;
+}
+
+.timezone-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.timezone-selector select {
+    padding: 8px 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.week-navigator {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.nav-btn {
+    background: none;
+    border: 1px solid #e5e7eb;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.nav-btn:hover {
+    background: #f3f4f6;
+}
+
+.time-slots {
+    display: grid;
+    gap: 10px;
+}
+
+.time-slot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+}
+
+.slot-btn {
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.time-slot.available .slot-btn {
+    background: #34d399;
+    color: white;
+}
+
+.time-slot.booked .slot-btn {
+    background: #e5e7eb;
+    color: #9ca3af;
+    cursor: not-allowed;
+}
+
+/* Updated Reviews Section */
+.reviews-section {
+    padding: 40px;
+    background: var(--review-bg);
+    border-radius: 20px;
+    box-shadow: 0 4px 30px rgba(139, 92, 246, 0.1);
+    color: var(--review-text);
+    margin-top: 40px;
+}
+
+.reviews-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.reviews-header h2 {
+    font-size: 2rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-family: 'Philosopher', sans-serif;
+}
+
+.rating-summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-dark);
+}
+
+.stars {
+    color: var(--accent-color);
+    letter-spacing: 2px;
+}
+
+.review-cards {
+    display: grid;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.review-card {
+    padding: 25px;
+    background: var(--review-card-bg);
+    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.08);
+    border: 1px solid rgba(139, 92, 246, 0.1);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(139, 92, 246, 0.12);
+}
+
+.review-card::before {
+    content: '"';
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    font-size: 60px;
+    color: var(--review-quote);
+    font-family: 'Philosopher', sans-serif;
+    opacity: 0.2;
+}
+
+.reviewer-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.reviewer-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.reviewer-details h4 {
+    margin: 0 0 4px 0;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.reviewer-details .stars {
+    font-size: 14px;
+}
+
+.review-text {
+    color: var(--text-medium);
+    line-height: 1.7;
+    margin: 0 0 12px 0;
+    font-size: 1.1rem;
+}
+
+.review-date {
+    display: block;
+    color: var(--text-light);
+    font-size: 13px;
+}
+
+@media (max-width: 768px) {
+    .profile-info {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .book-btn, .dashboard-btn {
+        width: 100%;
+    }
+
+    .stats {
+        justify-content: center;
+    }
+
+    .calendar-grid {
+        font-size: 12px;
+    }
+
+    .review-card {
+        flex-direction: column;
+    }
+
+    .review-header {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .reviews-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .review-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .social-links {
+        justify-content: center;
+        margin: 0 0 20px;
+    }
+
+    .stats {
+        padding-top: 20px;
+        margin-top: 4px;
+    }
+}
+
+@media (min-width: 768px) {
+    .review-cards {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+}
+
+/* Spiritual Decorative Elements */
+.section-heading {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 30px;
+    color: var(--primary-dark);
+    font-size: 2rem;
+    font-family: 'Philosopher', sans-serif;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.section-heading::before,
+.section-heading::after {
+    content: '✧';
+    color: #c1945c;
+    margin: 0 10px;    font-size: 0.8em;}/* Custom Scrollbar */::-webkit-scrollbar {    width: 10px;}::-webkit-scrollbar-track {    background: #f6f4ee;}::-webkit-scrollbar-thumb {    background: #c1945c;    border-radius: 5px;}/* Color scheme variables */:root {    --spiritual-brown: #7a4f3b;    --spiritual-gold: #c1945c;    --spiritual-cream: #f6f4ee;    --spiritual-white: #fff;    --spiritual-dark: #2c1810;}
+
+.profile-actions {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.profile-actions a {
+    text-decoration: none;
+}
+
+.book-btn, 
+.dashboard-btn,
+.my-book-btn,
+.my-course-btn,
+.my-shop-btn {
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+    font-family: 'Philosopher', sans-serif;
+    min-width: 160px;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+}
+
+.book-btn {
+    background: linear-gradient(135deg, #8B4513, #DAA520);
+    color: var(--white);
+    box-shadow: 0 4px 15px rgba(139, 69, 19, 0.2);
+}
+
+.dashboard-btn {
+    background: transparent;
+    border: 2px solid #8B4513;
+    color: #8B4513;
+}
+
+.my-book-btn {
+    background: transparent;
+    border: 2px solid #C6A668;
+    color: #C6A668;
+}
+
+.my-course-btn {
+    background: transparent;
+    border: 2px solid #7a4f3b;
+    color: #7a4f3b;
+}
+
+.my-shop-btn {
+    background: transparent;
+    border: 2px solid #8B4513;
+    color: #8B4513;
+}
+
+.book-btn:hover {
+    background: linear-gradient(135deg, #DAA520, #8B4513);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 69, 19, 0.3);
+}
+
+.dashboard-btn:hover,
+.my-book-btn:hover,
+.my-course-btn:hover,
+.my-shop-btn:hover {
+    background: var(--spiritual-cream);
+    color: var(--spiritual-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 69, 19, 0.15);
+}
+
+.profile-details {
+    flex: 1;
+    text-align: left;
+    min-width: 300px;
+    padding-right: 20px;
+}
+
+.profile-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.book-btn, 
+.dashboard-btn,
+.my-book-btn,
+.my-course-btn,
+.my-shop-btn {
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+    font-family: 'Philosopher', sans-serif;
+    min-width: 120px;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+}
+
+@media (max-width: 768px) {
+    .profile-details {
+        text-align: center;
+        padding-right: 0;
+    }
+
+    .profile-actions {
+        justify-content: center;
+    }
+
+    .book-btn, 
+    .dashboard-btn,
+    .my-book-btn,
+    .my-course-btn,
+    .my-shop-btn {
+        width: 100%;
+        padding: 12px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-actions {
+        flex-direction: column;
+    }
+
+    .book-btn, 
+    .dashboard-btn,
+    .my-book-btn,
+    .my-course-btn,
+    .my-shop-btn {
+        width: 100%;
+    }
+}
