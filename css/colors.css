@@ -1,0 +1,33 @@
+/* colors.css */
+:root {
+    /* Core Colors */
+    --mystic-indigo: #4B0082;
+    --mystic-violet: #8A2BE2;
+    --mystic-teal: #00CED1;
+    --mystic-white: #FFFFFF;
+    --mystic-dark: #130B1D;
+    
+    /* Background Colors */
+    --mystic-bg: #1F1433;
+    --mystic-surface: #2D1F3D;
+    
+    /* Main Gradients */
+    --gradient-primary: linear-gradient(135deg, var(--mystic-indigo), var(--mystic-violet));
+    --gradient-surface: linear-gradient(145deg, 
+        rgba(75, 0, 130, 0.1),
+        rgba(138, 43, 226, 0.05)
+    );
+    --gradient-card: linear-gradient(145deg,
+        rgba(255, 255, 255, 0.05),
+        rgba(255, 255, 255, 0.02)
+    );
+    
+    /* Utility Colors */
+    --mystic-success: #34d399;
+    --mystic-error: #dc2626;
+    
+    /* Shadows & Borders */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.3);
+    --border-light: rgba(255, 255, 255, 0.1);
+}

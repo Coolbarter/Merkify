@@ -1,5 +1,5 @@
-/* Import spiritual fonts */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Philosopher:wght@400;700&display=swap');
+@import url('./colors.css');
 
 :root {
     --spiritual-brown: #7a4f3b;
@@ -35,16 +35,16 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Cormorant Garamond', serif;
-    background-color: var(--spiritual-cream);
-    color: var(--spiritual-dark);
+    background-color: var(--mystic-bg);
+    color: var(--mystic-white);
     line-height: 1.6;
     overflow-x: hidden;
 }
 
 .sidebar {
     width: 60px;
-    background: linear-gradient(180deg, var(--spiritual-dark), var(--spiritual-brown));
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--gradient-cosmic);
+    border-right: 1px solid rgba(138, 43, 226, 0.1);
     color: white;
     height: 85vh;
     position: fixed;
@@ -118,14 +118,17 @@ body {
     padding: var(--spacing-sm) 0;
 }
 
+/* ...existing code... */
+
 .hero-background {
     position: relative;
     width: 100%;
-    height: 380px;  /* Reduced from 400px */
-    margin-bottom: 80px;  /* Increased margin bottom for better spacing */
+    height: 420px;  /* Adjusted height */
+    margin-bottom: 60px;
     display: flex;
-    align-items: center;
+    align-items: flex-end;  /* Changed from center to flex-end */
     justify-content: center;
+    overflow: hidden;
 }
 
 .hero-background::before {
@@ -135,50 +138,44 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../images/bck.webp');
-    background-size: cover;
+    background-image: url('../images/bck.jpg');
+    background-size: cover;  /* Changed back to cover */
     background-position: center;
     background-repeat: no-repeat;
+    filter: brightness(0.95);
     z-index: 1;
 }
 
 .hero-background::after {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
     bottom: 0;
-    background: url('../images/sacred-geometry.png') center/cover;
-    opacity: 0.1;
-    mix-blend-mode: soft-light;
-    z-index: 2;
-}
-
-.overlay {
-    position: absolute;
-    top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom,
-            rgba(44, 24, 16, 0.4),
-            rgba(122, 79, 59, 0.3));
+    height: 50%;  /* Gradient covers bottom half */
+    background: linear-gradient(to top,
+        rgba(26, 21, 38, 0.8) 0%,
+        rgba(26, 21, 38, 0.4) 50%,
+        transparent 100%
+    );
     z-index: 2;
 }
 
+/* Ensure the title remains visible */
 .hero-title {
     position: relative;
     z-index: 3;
-    color: var(--spiritual-cream);
+    color: var(--mystic-white);
     text-align: center;
-    font-size: 4rem;
+    font-size: 3.8rem;
     font-family: 'Philosopher', sans-serif;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-    margin: 0;
-    padding: 0;
-    letter-spacing: 1px;
+    text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.5);
+    margin-bottom: 40px;  /* Add bottom margin */
+    padding: 0 20px;  /* Added padding for better mobile display */
+    letter-spacing: 2px;
 }
+
+/* ...existing code... */
 
 .content {
     max-width: 1400px;
@@ -186,6 +183,7 @@ body {
     margin: 0 auto;
     width: 100%;
     box-sizing: border-box;
+    background: var(--mystic-surface-gradient);
 }
 
 .content h1 {
@@ -198,7 +196,9 @@ body {
     margin: -50px auto 30px;
     width: 100%;
     max-width: 800px;
-    background: var(--spiritual-white);
+    background: var(--gradient-card);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--border-light);
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -214,6 +214,9 @@ body {
     font-size: 1.1rem;
     font-family: 'Cormorant Garamond', serif;
     min-width: 0;
+    background: rgba(31, 20, 51, 0.7);
+    color: var(--mystic-lavender);
+    border: 1px solid rgba(230, 230, 250, 0.1);
 }
 
 .find-button {
@@ -227,6 +230,7 @@ body {
     white-space: nowrap;
     flex-shrink: 0;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.2);
 }
 
 .find-button:hover {
@@ -400,7 +404,7 @@ h3 {
 
 h3 {
     font-size: 1.5rem;
-    color: var(--spiritual-dark);
+    color: var(--mystic-stardust);
     margin-bottom: 25px;
     font-weight: 600;
     font-family: 'Philosopher', sans-serif;
@@ -441,15 +445,16 @@ h3::after {
 }
 
 .expert-card {
-    background: linear-gradient(145deg, var(--spiritual-white), #f8f4f1);
-    border: 1px solid rgba(122, 79, 59, 0.1);
-    border-radius: 15px;
+    background: var(--gradient-card);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-light);
     padding: 20px;  /* Reduced from 24px */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
     background: linear-gradient(145deg, #fff, #f8f4f1);
     border: 1px solid rgba(122, 79, 59, 0.1);
+    box-shadow: 0 4px 20px rgba(138, 43, 226, 0.1);
     transition: all 0.4s ease;
     height: auto;
     min-height: 450px;  /* Set a minimum height */
@@ -494,7 +499,7 @@ h3::after {
 }
 
 .online {
-    background-color: #34d399;
+    background-color: var(--mystic-aura);
 }
 
 .expert-image {
@@ -545,6 +550,8 @@ h3::after {
 
 .reviews {
     color: #666;
+    color: var(--mystic-lavender);
+    opacity: 0.8;
 }
 
 .price-info {
@@ -567,8 +574,8 @@ h3::after {
 .book-btn {
     width: 100%;
     padding: 12px;
-    background: linear-gradient(135deg, var(--spiritual-brown), var(--spiritual-gold));
-    color: var(--spiritual-white);
+    background: var(--gradient-mystic);
+    color: var(--mystic-white);
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -576,6 +583,7 @@ h3::after {
     margin-bottom: 12px;
     font-family: 'Philosopher', sans-serif;
     transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.2);
 }
 
 .book-btn:hover {
@@ -587,9 +595,9 @@ h3::after {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    background: rgba(193, 148, 92, 0.1);
-    color: var(--spiritual-brown);
-    border: 1px solid rgba(122, 79, 59, 0.2);
+    background: var(--mystic-violet-10);
+    color: var(--mystic-indigo);
+    border: 1px solid var(--border-medium);
     padding: 12px;
     border-radius: 8px;
     cursor: pointer;
@@ -802,11 +810,11 @@ h3::after {
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--spiritual-cream);
+    background: var(--mystic-bg-dark);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--spiritual-gold);
+    background: var(--mystic-violet);
     border-radius: 5px;
 }
 
@@ -925,7 +933,9 @@ h3::after {
     display: flex;
     align-items: center;
     gap: 15px;
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+    background: var(--gradient-card);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(230, 230, 250, 0.1);
     padding: 20px;
     border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -941,7 +951,7 @@ h3::after {
 }
 
 .trust-text h4 {
-    color: var(--spiritual-dark);
+    color: var(--mystic-stardust);
     margin: 0 0 5px 0;
     font-family: 'Philosopher', sans-serif;
 }
@@ -950,6 +960,8 @@ h3::after {
     color: var(--spiritual-brown);
     margin: 0;
     font-size: 0.9rem;
+    color: var(--mystic-lavender);
+    opacity: 0.8;
 }
 
 /* Responsive adjustments */
@@ -1043,7 +1055,7 @@ h3::after {
     font-size: 1.2rem;
     font-family: 'Cormorant Garamond', serif;
     background: var(--spiritual-white);
-    color: var(--spiritual-dark);
+    color: var (--spiritual-dark);
     resize: none;
     margin: 20px auto;
     display: none;
@@ -1108,17 +1120,16 @@ h3::after {
 }
 
 .filter-section {
-    background: linear-gradient(145deg, var(--spiritual-white), #f8f4f1);
-    border-radius: 16px;
-    margin: 0.5rem auto;
-    padding: 30px;
+    background: var(--gradient-surface);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--border-light);
     box-shadow: 0 8px 25px rgba(122, 79, 59, 0.08);
     border: 1px solid rgba(122, 79, 59, 0.1);
     width: 100%;
 }
 
 .filter-header {
-    color: var(--spiritual-dark);
+    color: var(--mystic-stardust);
     font-family: 'Philosopher', sans-serif;
     font-size: 1.5rem;
     margin-bottom: 25px;
@@ -1156,15 +1167,16 @@ h3::after {
     font-size: 0.95rem;
     color: var(--spiritual-brown);
     font-family: 'Philosopher', sans-serif;
+    color: var(--mystic-lavender);
+    opacity: 0.8;
 }
 
 .filter-group select {
     width: 100%;
     padding: 12px 16px;
-    border: 1px solid rgba(122, 79, 59, 0.15);
-    border-radius: 10px;
-    background: var(--spiritual-white);
-    color: var(--spiritual-dark);
+    border: 1px solid var(--border-medium);
+    background-color: var(--mystic-white);
+    color: var(--mystic-charcoal);
     font-family: 'Cormorant Garamond', serif;
     font-size: 1rem;
     transition: all 0.3s ease;
@@ -1174,11 +1186,14 @@ h3::after {
     background-repeat: no-repeat;
     background-position: right 12px center;
     background-size: 16px;
+    background: rgba(31, 20, 51, 0.7);
+    color: var(--mystic-lavender);
+    border: 1px solid rgba(230, 230, 250, 0.1);
 }
 
 .filter-group select:hover {
-    border-color: var(--spiritual-gold);
-    box-shadow: 0 2px 8px rgba(122, 79, 59, 0.1);
+    border-color: var(--mystic-violet);
+    box-shadow: var(--shadow-md);
 }
 
 .filter-group select:focus {
@@ -1206,9 +1221,9 @@ h3::after {
 }
 
 .reset-filter {
-    background: rgba(193, 148, 92, 0.1);
-    color: var(--spiritual-brown);
-    border: 1px solid rgba(122, 79, 59, 0.2);
+    background: var(--mystic-violet-10);
+    color: var (--mystic-indigo);
+    border: 1px solid var(--border-medium);
 }
 
 .reset-filter:hover {
@@ -1217,10 +1232,11 @@ h3::after {
 }
 
 .apply-filter {
-    background: linear-gradient(135deg, var(--spiritual-brown), var(--spiritual-gold));
-    color: var(--spiritual-white);
+    background: var(--gradient-mystic);
+    color: var(--mystic-white);
     border: none;
     box-shadow: 0 4px 15px rgba(122, 79, 59, 0.2);
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.2);
 }
 
 .apply-filter:hover {
@@ -1314,7 +1330,7 @@ h3::after {
 }
 
 .btn-secondary {
-    background: linear-gradient(135deg, var(--spiritual-cream), var(--spiritual-white));
+    background: linear-gradient(135deg, var(--spiritual-cream), var (--spiritual-white));
     color: var(--spiritual-brown);
     border: 1px solid var(--spiritual-brown);
 }
