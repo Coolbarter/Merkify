@@ -36,7 +36,7 @@ body {
     padding: 0;
     font-family: 'Cormorant Garamond', serif;
     background-color: var(--mystic-bg);
-    color: var(--mystic-white);
+    color: var (--mystic-white);
     line-height: 1.6;
     overflow-x: hidden;
 }
@@ -124,7 +124,7 @@ body {
     position: relative;
     width: 100%;
     height: 420px;  /* Adjusted height */
-    margin-bottom: 60px;
+    margin-bottom: 80px; /* Increased margin for better separation */
     display: flex;
     align-items: flex-end;  /* Changed from center to flex-end */
     justify-content: center;
@@ -152,11 +152,12 @@ body {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 50%;  /* Gradient covers bottom half */
+    height: 70%;  /* Increased height of gradient */
     background: linear-gradient(to top,
-        rgba(26, 21, 38, 0.8) 0%,
-        rgba(26, 21, 38, 0.4) 50%,
-        transparent 100%
+        var(--mystic-bg) 0%,
+        rgba(31, 20, 51, 0.95) 20%,
+        rgba(31, 20, 51, 0.7) 40%,
+        rgba(31, 20, 51, 0) 100%
     );
     z-index: 2;
 }
@@ -175,15 +176,29 @@ body {
     letter-spacing: 2px;
 }
 
+/* Add new transition section */
+.content-transition {
+    position: relative;
+    height: 40px;
+    margin-top: -40px;
+    background: linear-gradient(to bottom,
+        transparent,
+        var(--mystic-bg)
+    );
+    z-index: 3;
+}
+
 /* ...existing code... */
 
 .content {
+    position: relative;
     max-width: 1400px;
     padding: 0 40px;
-    margin: 0 auto;
+    margin: -20px auto 0; /* Adjusted margin to overlap transition */
     width: 100%;
     box-sizing: border-box;
     background: var(--mystic-surface-gradient);
+    z-index: 4;
 }
 
 .content h1 {
@@ -452,10 +467,12 @@ h3::after {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(145deg, #fff, #f8f4f1);
-    border: 1px solid rgba(122, 79, 59, 0.1);
-    box-shadow: 0 4px 20px rgba(138, 43, 226, 0.1);
-    transition: all 0.4s ease;
+    background: linear-gradient(145deg, 
+        rgba(31, 20, 51, 0.95),
+        rgba(31, 20, 51, 0.85)
+    );
+    border: 1px solid rgba(138, 43, 226, 0.15);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     height: auto;
     min-height: 450px;  /* Set a minimum height */
 }
@@ -496,6 +513,9 @@ h3::after {
     border-radius: 20px;
     font-size: 14px;
     color: white;
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .online {
@@ -530,11 +550,17 @@ h3::after {
 
 .expert-details {
     padding: 12px 0;  /* Reduced from 15px */
+    padding: 1.5rem;
+    background: transparent;
 }
 
 .expert-title {
     color: var(--spiritual-brown);
     font-style: italic;
+    color: var(--mystic-lavender);
+    opacity: 0.9;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
 }
 
 .rating {
@@ -542,6 +568,10 @@ h3::after {
     align-items: center;
     gap: 5px;
     margin: 10px 0;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem;
+    border-radius: 8px;
+    margin: 1rem 0;
 }
 
 .rating .star {
@@ -559,11 +589,18 @@ h3::after {
     justify-content: space-between;
     align-items: center;
     margin: 20px 0;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.75rem;
+    border-radius: 8px;
+    margin: 1rem 0;
 }
 
 .price {
     font-weight: bold;
     font-size: 18px;
+    color: var(--mystic-white);
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
 .icons {
@@ -584,6 +621,14 @@ h3::after {
     font-family: 'Philosopher', sans-serif;
     transition: all 0.3s ease;
     box-shadow: 0 0 15px rgba(138, 43, 226, 0.2);
+    background: linear-gradient(135deg, #8A2BE2, #4B0082);
+    border: none;
+    color: white;
+    padding: 0.8rem;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-top: 1rem;
+    box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
 }
 
 .book-btn:hover {
@@ -607,6 +652,9 @@ h3::after {
     transition: all 0.3s ease;
     text-decoration: none;
     font-family: 'Philosopher', sans-serif;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--mystic-white);
 }
 
 .about-btn:before {
@@ -1115,26 +1163,47 @@ h3::after {
 .filter-container {
     width: 100%;
     max-width: 1200px;
-    margin: 0 auto 40px;  /* Adjusted margin */
+    margin: 0 auto 60px; /* Increased bottom margin */
     padding: 0 20px;
 }
 
 .filter-section {
-    background: var(--gradient-surface);
-    backdrop-filter: blur(15px);
-    border: 1px solid var(--border-light);
-    box-shadow: 0 8px 25px rgba(122, 79, 59, 0.08);
-    border: 1px solid rgba(122, 79, 59, 0.1);
-    width: 100%;
+    background: linear-gradient(145deg, 
+        rgba(31, 20, 51, 0.98),
+        rgba(26, 16, 41, 0.95)
+    );
+    border: 1px solid rgba(138, 43, 226, 0.15);
+    box-shadow: 0 8px 32px rgba(122, 79, 59, 0.2),
+                0 4px 12px rgba(191, 41, 91, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    position: relative;
+}
+
+.filter-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(191, 41, 91, 0.3),
+        transparent
+    );
 }
 
 .filter-header {
-    color: var(--mystic-stardust);
-    font-family: 'Philosopher', sans-serif;
-    font-size: 1.5rem;
-    margin-bottom: 25px;
-    position: relative;
+    color: var(--mystic-white);
+    font-size: 2rem;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-weight: 600;
+    margin-bottom: 30px;
     padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .filter-header::after {
@@ -1164,16 +1233,20 @@ h3::after {
     align-items: center;
     gap: 8px;
     margin-bottom: 8px;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     color: var(--spiritual-brown);
     font-family: 'Philosopher', sans-serif;
     color: var(--mystic-lavender);
     opacity: 0.8;
+    color: var(--mystic-white);
+    opacity: 0.95;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .filter-group select {
     width: 100%;
-    padding: 12px 16px;
+    padding: 14px 16px;
     border: 1px solid var(--border-medium);
     background-color: var(--mystic-white);
     color: var(--mystic-charcoal);
@@ -1186,91 +1259,95 @@ h3::after {
     background-repeat: no-repeat;
     background-position: right 12px center;
     background-size: 16px;
-    background: rgba(31, 20, 51, 0.7);
-    color: var(--mystic-lavender);
-    border: 1px solid rgba(230, 230, 250, 0.1);
+    background: rgba(21, 13, 34, 0.9);
+    color: var(--mystic-white);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .filter-group select:hover {
-    border-color: var(--mystic-violet);
-    box-shadow: var(--shadow-md);
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(31, 20, 51, 0.95);
 }
 
-.filter-group select:focus {
-    outline: none;
-    border-color: var(--spiritual-gold);
-    box-shadow: 0 0 0 3px rgba(193, 148, 92, 0.15);
+.filter-group select option {
+    background: rgba(31, 20, 51, 0.98);
+    color: var(--mystic-white);
+    padding: 10px;
 }
 
 .filter-buttons {
     display: flex;
     justify-content: flex-end;
-    gap: 12px;
-    margin-top: 20px;
+    gap: 15px;
+    margin-top: 30px;
     padding-top: 20px;
-    border-top: 1px solid rgba(122, 79, 59, 0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .filter-btn {
     padding: 12px 24px;
+    min-width: 120px;
+    max-width: 160px;
     font-size: 0.95rem;
     border-radius: 8px;
     font-family: 'Philosopher', sans-serif;
     transition: all 0.3s ease;
     cursor: pointer;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .reset-filter {
-    background: var(--mystic-violet-10);
-    color: var (--mystic-indigo);
-    border: 1px solid var(--border-medium);
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--mystic-white);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .reset-filter:hover {
-    background: rgba(193, 148, 92, 0.2);
-    transform: translateY(-1px);
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
 
 .apply-filter {
-    background: var(--gradient-mystic);
+    background: linear-gradient(135deg, #8A2BE2, #4B0082);
     color: var(--mystic-white);
     border: none;
-    box-shadow: 0 4px 15px rgba(122, 79, 59, 0.2);
-    box-shadow: 0 0 15px rgba(138, 43, 226, 0.2);
+    box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3),
+                0 2px 8px rgba(191, 41, 91, 0.2);
 }
 
 .apply-filter:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(122, 79, 59, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(138, 43, 226, 0.4),
+                0 4px 12px rgba(191, 41, 91, 0.3);
 }
 
-/* Update responsive styles */
+/* Update expert section spacing */
+.experts-container {
+    margin-top: 40px;
+    padding: 2rem;
+    background: var(--mystic-bg);
+}
+
+.expert-cards {
+    gap: 30px; /* Increased gap between cards */
+    padding: 20px 0; /* Added vertical padding */
+}
+
+/* Adjust responsive styles */
 @media (max-width: 768px) {
-    .hero-background {
-        margin-bottom: 60px;
-    }
-
-    .filter-section {
-        padding: 20px;
-    }
-
-    .filter-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-
     .filter-buttons {
-        flex-direction: column;
-        gap: 10px;
+        flex-direction: row; /* Keep buttons side by side on mobile */
+        justify-content: center;
     }
 
     .filter-btn {
-        width: 100%;
-        text-align: center;
+        flex: 0 1 auto; /* Don't allow buttons to grow too wide */
+        min-width: 100px;
     }
 }
-
-/* ...existing code... */
 
 /* ...existing code... */
 
@@ -1316,6 +1393,7 @@ h3::after {
 .filter-icon {
     font-size: 0.7rem;
     opacity: 0.8;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
 }
 
 .dropdown-icon {
