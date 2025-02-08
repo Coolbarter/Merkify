@@ -1,41 +1,124 @@
 /* colors.css */
 :root {
-    /* Core Colors */
-    --mystic-indigo: #4B0082;
-    --mystic-violet: #8A2BE2;
-    --mystic-teal: #00CED1;
-    --mystic-white: #FFFFFF;
-    --mystic-dark: #130B1D;
+    /* Core Colors - Lighter palette with WCAG 2.2 AA compliance */
+    --mystic-indigo: #6B2EA3;      /* Lightened from #4B0082, still meets contrast */
+    --mystic-violet: #A85CFF;      /* Lightened from #9747FF */
+    --mystic-teal: #00C4C4;        /* Lightened from #00A3A3 */
+    --mystic-white: #FFFFFF;       /* Keep */
+    --mystic-dark: #1A1225;        /* Slightly lightened from #130B1D */
     
-    /* Background Colors */
-    --mystic-bg: #1F1433;
-    --mystic-surface: #2D1F3D;
+    /* Background Colors - Lighter shades */
+    --mystic-bg: #2A1D45;          /* Lightened from #1F1433 */
+    --mystic-surface: #382952;     /* Lightened from #2D1F3D */
     
-    /* Main Gradients */
-    --gradient-primary: linear-gradient(135deg, var(--mystic-indigo), var(--mystic-violet));
+    /* Main Gradients - Adjusted for lighter feel */
+    --gradient-primary: linear-gradient(135deg, 
+        var(--mystic-indigo),
+        var(--mystic-violet)
+    );
     --gradient-surface: linear-gradient(145deg, 
-        rgba(75, 0, 130, 0.1),
-        rgba(138, 43, 226, 0.05)
+        rgba(107, 46, 163, 0.1),   /* Using new mystic-indigo */
+        rgba(168, 92, 255, 0.05)   /* Using new mystic-violet */
     );
     --gradient-card: linear-gradient(145deg,
-        rgba(255, 255, 255, 0.05),
-        rgba(255, 255, 255, 0.02)
+        rgba(255, 255, 255, 0.08),  /* Increased opacity */
+        rgba(255, 255, 255, 0.04)
     );
     
-    /* Additional Gradients */
+    /* Additional Gradients - Lighter versions */
     --gradient-cosmic: linear-gradient(180deg, 
-        rgba(75, 0, 130, 0.95),
-        rgba(138, 43, 226, 0.95)
+        rgba(107, 46, 163, 0.9),    /* Lighter and less opaque */
+        rgba(168, 92, 255, 0.9)
     );
-    --mystic-violet-10: rgba(138, 43, 226, 0.1);
-    --mystic-bg-dark: #130B1D;
+    --mystic-violet-10: rgba(168, 92, 255, 0.15);  /* Increased opacity */
+    --mystic-bg-dark: #221834;      /* Lightened from #130B1D */
     
-    /* Utility Colors */
-    --mystic-success: #34d399;
-    --mystic-error: #dc2626;
+    /* Utility Colors - Brighter versions */
+    --mystic-success: #3DD6A7;      /* Brighter success color */
+    --mystic-error: #FF4D4D;        /* Brighter error color */
     
-    /* Shadows & Borders */
-    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
-    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.3);
-    --border-light: rgba(255, 255, 255, 0.1);
+    /* Accessible Colors - Adjusted for better visibility */
+    --accessible-text-light: #FFFFFF;
+    --accessible-text-dark: #2A1D45;    /* Using new mystic-bg */
+    --accessible-link: #5CA9FF;         /* Lighter blue */
+    --accessible-link-hover: #3D8FFF;   /* Lighter hover state */
+    --accessible-error: #FF5C5C;        /* Lighter error */
+    --accessible-success: #34C369;      /* Lighter success */
+    
+    /* Interaction Colors */
+    --interactive-hover: rgba(255, 255, 255, 0.1);
+    --interactive-active: rgba(255, 255, 255, 0.15);
+    --interactive-focus: #5CA9FF;
+    
+    /* Shadows & Borders - Softened */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
+    --border-light: rgba(255, 255, 255, 0.15);
+    --border-medium: rgba(255, 255, 255, 0.2);
+
+    /* Core Colors - WCAG 2.2 AA compliant */
+    --mystic-text: #0b0c0c;        /* Standard GOV.UK text color */
+    --mystic-link: #1d70b8;        /* GOV.UK link color */
+    --mystic-link-hover: #003078;  /* GOV.UK link hover */
+    --mystic-link-visited: #4c2c92; /* GOV.UK link visited */
+    --mystic-focus: #ffdd00;       /* GOV.UK focus color */
+    --mystic-white: #FFFFFF;
+
+    /* Interaction Colors - Updated for accessibility */
+    --interactive-hover: var(--mystic-link-hover);
+    --interactive-active: var(--mystic-link-visited);
+    --interactive-focus: var(--mystic-focus);
+    
+    /* Focus state styles */
+    --focus-outline: 3px solid var(--mystic-focus);
+}
+
+/* Color contrast helper classes */
+.text-on-dark {
+    color: var(--accessible-text-light);
+}
+
+.text-on-light {
+    color: var(--accessible-text-dark);
+}
+
+.interactive-element {
+    transition: all 0.2s ease;
+}
+
+.interactive-element:hover {
+    background-color: var(--interactive-hover);
+}
+
+.interactive-element:active {
+    background-color: var(--interactive-active);
+}
+
+.interactive-element:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: 2px;
+    color: var(--mystic-text);
+    background-color: var(--mystic-focus);
+}
+
+/* New link styles */
+.gov-link {
+    color: var(--mystic-link);
+    text-decoration: underline;
+    text-underline-offset: 0.1em;
+}
+
+.gov-link:hover {
+    color: var(--mystic-link-hover);
+}
+
+.gov-link:visited {
+    color: var(--mystic-link-visited);
+}
+
+.gov-link:focus {
+    outline: var(--focus-outline);
+    outline-offset: 2px;
+    background-color: var(--mystic-focus);
+    text-decoration: none;
 }

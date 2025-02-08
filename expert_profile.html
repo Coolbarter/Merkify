@@ -63,6 +63,68 @@
             </div>
         </div>
 
+        <div class="services standalone-services">
+            <div class="service-selection">
+                <div class="service-types">
+                    <div class="service-type-card active" data-service="numerology">
+                        <div class="service-icon">🔮</div>
+                        <h4>Personal Numerology Reading</h4>
+                    </div>
+                    <div class="service-type-card" data-service="healing">
+                        <div class="service-icon">✨</div>
+                        <h4>Energy Healing Session</h4>
+                    </div>
+                </div>
+
+                <div class="service-config">
+                    <div class="datetime-selector">
+                        <h5>Select Date & Time</h5>
+                        <button class="calendar-trigger">
+                            <span class="calendar-icon">📅</span>
+                            <span class="selected-date">Select a date</span>
+                        </button>
+                        <div class="duration-selector">
+                            <h5>Select Duration</h5>
+                            <div class="duration-options">
+                                <button class="duration-btn" data-duration="10">10 min</button>
+                                <button class="duration-btn" data-duration="30">30 min</button>
+                                <button class="duration-btn active" data-duration="60">60 min</button>
+                                <button class="duration-btn" data-duration="90">90 min</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="price-summary">
+                        <div class="price-details">
+                            <span class="service-name">Personal Numerology Reading</span>
+                            <span class="duration-label">60 minutes</span>
+                            <span class="final-price">$75</span>
+                        </div>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="calendar-modal" id="bookingCalendar">
+                <div class="calendar-content">
+                    <div class="calendar-header">
+                        <button class="prev-month">←</button>
+                        <h4 class="current-month">September 2023</h4>
+                        <button class="next-month">→</button>
+                    </div>
+                    <div class="calendar-grid">
+                        <!-- Calendar will be populated by JavaScript -->
+                    </div>
+                    <div class="time-slots">
+                        <h5>Available Times</h5>
+                        <div class="time-slots-grid">
+                            <!-- Time slots will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="profile-content">
             <div class="tabs">
                 <button class="tab active">About</button>
@@ -72,6 +134,16 @@
 
             <div class="tab-content">
                 <div class="about-section">
+                    <!-- Remove this entire services section since it's now standalone -->
+                    <!--
+                    <div class="services">
+                        <h3>My Services</h3>
+                        <div class="service-cards">
+                            ...
+                        </div>
+                    </div>
+                    -->
+
                     <div class="intro">
                         <h2 class="section-heading">✧ About Me ✧</h2>
                         <p>With over 10 years of experience in numerology and spiritual healing, I help people discover their life path and unlock their full potential. My approach combines traditional numerology with modern energy work.</p>
@@ -96,26 +168,6 @@
                             <li>Spiritual Counseling Certification - Mindful Institute</li>
                             <li>10+ years of professional practice</li>
                         </ul>
-                    </div>
-
-                    <div class="services">
-                        <h3>My Services</h3>
-                        <div class="service-cards">
-                            <div class="service-card">
-                                <h4>Personal Numerology Reading</h4>
-                                <p class="duration">60 minutes</p>
-                                <p class="price">$75</p>
-                                <p class="description">Comprehensive analysis of your life path number, destiny number, and current cycles.</p>
-                                <button class="book-btn small">Book Now</button>
-                            </div>
-                            <div class="service-card">
-                                <h4>Energy Healing Session</h4>
-                                <p class="duration">90 minutes</p>
-                                <p class="price">$100</p>
-                                <p class="description">Deep energy cleansing and chakra balancing for spiritual alignment.</p>
-                                <button class="book-btn small">Book Now</button>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -194,5 +246,38 @@
             </div>
         </div>
     </main>
+    
+    <button class="floating-call-btn">
+        <span class="pulse"></span>
+        <i class="phone-icon">📞</i>
+        Start Instant Call ($2/min)
+    </button>
+
+    <script>
+        // Handle floating call button visibility
+        const floatingCallBtn = document.querySelector('.floating-call-btn');
+        const statusBadge = document.querySelector('.status-badge');
+        let lastScrollY = window.scrollY;
+        
+        // Only show if expert is online
+        if (statusBadge.textContent.toLowerCase() !== 'online') {
+            floatingCallBtn.style.display = 'none';
+        }
+
+        // Show/hide button based on scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) { // Show after scrolling 300px
+                floatingCallBtn.classList.add('visible');
+            } else {
+                floatingCallBtn.classList.remove('visible');
+            }
+            lastScrollY = window.scrollY;
+        });
+
+        floatingCallBtn.addEventListener('click', () => {
+            // Add your instant call logic here
+            alert('Starting instant call...');
+        });
+    </script>
 </body>
 </html>
