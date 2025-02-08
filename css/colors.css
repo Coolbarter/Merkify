@@ -22,6 +22,14 @@
         rgba(255, 255, 255, 0.02)
     );
     
+    /* Additional Gradients */
+    --gradient-cosmic: linear-gradient(180deg, 
+        rgba(75, 0, 130, 0.95),
+        rgba(138, 43, 226, 0.95)
+    );
+    --mystic-violet-10: rgba(138, 43, 226, 0.1);
+    --mystic-bg-dark: #130B1D;
+    
     /* Utility Colors */
     --mystic-success: #34d399;
     --mystic-error: #dc2626;

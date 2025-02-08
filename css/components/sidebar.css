@@ -13,7 +13,7 @@
 .sidebar {
     width: 60px;
     background: var(--gradient-cosmic);
-    border-right: 1px solid var(--border-light);
+    border-right: 1px solid rgba(138, 43, 226, 0.1);
     color: white;
     height: 85vh;
     position: fixed;
@@ -24,10 +24,12 @@
     z-index: 1000;
     border-radius: 0 16px 16px 0;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-    left: var(--spacing-sm);
+    left: 0;  /* Changed from var(--spacing-sm) to 0 */
     top: 50%;
     transform: translateY(-50%);
     margin: 0;
+    opacity: 1; /* Ensure visibility */
+    visibility: visible; /* Ensure visibility */
 }
 
 .nav-items {

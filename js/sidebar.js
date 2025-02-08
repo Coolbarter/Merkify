@@ -5,19 +5,20 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             document.getElementById('sidebar-container').innerHTML = data;
             
-            // Setup profile menu toggle
+            // Handle avatar click for profile menu
             const avatar = document.querySelector('.nav-item.avatar');
-            const profileMenu = document.getElementById('profileMenu');
-            
-            avatar.addEventListener('click', () => {
-                profileMenu.classList.toggle('active');
-            });
+            const profileMenu = document.querySelector('.profile-menu');
 
-            // Close menu when clicking outside
-            document.addEventListener('click', (e) => {
-                if (!avatar.contains(e.target)) {
+            if (avatar && profileMenu) {
+                avatar.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    profileMenu.classList.toggle('active');
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function() {
                     profileMenu.classList.remove('active');
-                }
-            });
+                });
+            }
         });
 });
