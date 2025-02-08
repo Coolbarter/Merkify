@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./css/components/sidebar.css">
 </head>
 <body>
-    <!-- Include sidebar component -->
+    <!-- Sidebar container should be first in body -->
     <div id="sidebar-container"></div>
 
     <div class="hero-background">
@@ -377,15 +377,29 @@
         document.querySelector('.back-btn').style.display = 'none';
         document.querySelector('.crystal-image').style.transform = 'scale(1)';
     });
-
-    fetch('./components/sidebar.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('sidebar-container').innerHTML = data;
-        });
+    </script>
+    <script>
+        // Load sidebar with absolute path
+        fetch('/components/sidebar.html')
+            .then(response => {
+                if (!response.ok) {
+                    // Try relative path if absolute fails
+                    return fetch('./components/sidebar.html');
+                }
+                return response;
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('sidebar-container').innerHTML = data;
+                // Initialize sidebar
+                const sidebarScript = document.createElement('script');
+                sidebarScript.src = './js/sidebar.js';
+                document.body.appendChild(sidebarScript);
+            })
+            .catch(error => {
+                console.error('Error loading sidebar:', error);
+            });
     </script>
     <script src="./js/profile.js"></script>
-    <script src="./js/sidebar.js"></script>
-    <script src="./js/sidebar.js"></script>
 </body>
 </html>

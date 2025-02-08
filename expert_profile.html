@@ -23,7 +23,12 @@
                     <span class="status-badge online">Online</span>
                 </div>
                 <div class="profile-details">
-                    <h1>Sarah Miller</h1>
+                    <div class="name-section">
+                        <h1>Sarah Miller</h1>
+                        <button class="fav-btn" title="Add to favorites">
+                            <span class="heart-icon">❤</span>
+                        </button>
+                    </div>
                     <p class="title">Professional Numerologist | Energy Healer</p>
                     <div class="social-links">
                         <a href="#" class="social-link">
@@ -278,6 +283,24 @@
             // Add your instant call logic here
             alert('Starting instant call...');
         });
+
+        // Add this to your existing script section
+        const favBtn = document.querySelector('.fav-btn');
+        
+        favBtn.addEventListener('click', () => {
+            favBtn.classList.toggle('active');
+            
+            // Optional: Show feedback
+            if (favBtn.classList.contains('active')) {
+                // You can add API call here to save to favorites
+                console.log('Added to favorites');
+            } else {
+                // You can add API call here to remove from favorites
+                console.log('Removed from favorites');
+            }
+        });
+
+        // Rest of your existing script...
     </script>
 </body>
 </html>

@@ -16,20 +16,22 @@
     border-right: 1px solid rgba(138, 43, 226, 0.1);
     color: white;
     height: 85vh;
-    position: fixed;
+    position: fixed !important;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: var(--spacing-sm);
-    z-index: 1000;
+    z-index: 10000 !important;  /* Increased z-index to ensure visibility */
     border-radius: 0 16px 16px 0;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-    left: 0;  /* Changed from var(--spacing-sm) to 0 */
-    top: 50%;
-    transform: translateY(-50%);
+    left: 0 !important;  /* Changed from var(--spacing-sm) to 0 */
+    top: 50% !important;
+    transform: translateY(-50%) !important;
     margin: 0;
-    opacity: 1; /* Ensure visibility */
-    visibility: visible; /* Ensure visibility */
+    opacity: 1 !important; /* Ensure visibility */
+    visibility: visible !important; /* Ensure visibility */
+    transition: all 0.3s ease;
+    background: linear-gradient(to bottom, #2c1810, #7a4f3b) !important;
 }
 
 .nav-items {
@@ -92,12 +94,19 @@
     transform: translateY(-2px);
 }
 
+/* Make the avatar button more clickable */
 .nav-item.avatar {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
     width: 40px;
-    height: auto;
-    min-height: 50px;
-    padding: 4px 0;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
+    z-index: 10000;  /* Ensure it's above other elements */
 }
 
 .nav-item.avatar img {
@@ -107,6 +116,7 @@
     object-fit: cover;
     border: 2px solid var(--spiritual-cream);
     transition: transform 0.2s ease;
+    pointer-events: auto;  /* Enable click events */
 }
 
 .nav-item.avatar img:hover {
@@ -116,24 +126,50 @@
 
 /* Profile Menu Styles */
 .profile-menu {
-    position: absolute;
-    left: 70px;  /* Keep this for the menu position */
-    top: -20px;  /* Adjust to better align with avatar */
+    position: fixed !important; /* Change to fixed */
+    left: 70px !important;  /* Adjust position */
+    top: 50% !important;   /* Center vertically */
+    transform: translateY(-50%) !important;
     width: 280px;
-    background: var(--spiritual-white);
+    background: #fff;
     border-radius: 15px;
-    box-shadow: var(--shadow-lg);
-    display: none;
-    z-index: 1000;
-    opacity: 0;
-    transform: translateX(-10px);
-    transition: opacity 0.3s, transform 0.3s;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    display: none; /* Changed from visibility: hidden */
+    z-index: 10001 !important;  /* Ensure it's above the avatar */
+    pointer-events: auto !important;
 }
 
 .profile-menu.active {
-    display: block;
-    opacity: 1;
-    transform: translateX(0);
+    display: block; /* Changed from visibility: visible */
+    animation: menuFadeIn 0.3s ease forwards;
+}
+
+@keyframes menuFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Add styles for menu content */
+.user-info {
+    padding: 10px;
+}
+
+.user-info h4 {
+    color: var(--spiritual-dark);
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.user-info p {
+    color: var(--spiritual-brown);
+    margin: 5px 0 0;
+    font-size: 0.9rem;
 }
 
 .menu-header {
@@ -234,4 +270,51 @@
     .nav-item span {
         font-size: 0.6rem;
     }
+}
+
+/* Add new toggle button styles */
+.sidebar-toggle {
+    position: fixed;
+    left: 70px;  /* Position it next to the sidebar */
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--spiritual-accent);
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+/* Add classes for sidebar state */
+.sidebar.collapsed {
+    left: -70px;
+}
+
+.sidebar-toggle.collapsed {
+    left: 10px;
+}
+
+#sidebar-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: auto;
+    z-index: 10000;
+    pointer-events: none; /* Allow clicking through container */
+}
+
+#sidebar-container > * {
+    pointer-events: auto; /* Enable clicks on sidebar elements */
+}
+
+#sidebar-container * {
+    pointer-events: auto !important;
 }
