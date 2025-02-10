@@ -2,21 +2,7 @@
 @import url('./colors.css');
 
 :root {
-    --spiritual-brown: #7a4f3b;
-    --spiritual-gold: #c1945c;
-    --spiritual-cream: #f6f4ee;
-    --spiritual-white: #fff;
-    --spiritual-dark: #2c1810;
-    --spiritual-accent: #10b981;
-    --spiritual-error: #dc2626;
-    --spiritual-success: #34d399;
-    
-    /* Shadows */
-    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-    
-    /* Spacing */
+    /* Keep only unique spacing variables */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 1.5rem;
@@ -35,27 +21,27 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Cormorant Garamond', serif;
-    background-color: var(--mystic-bg);
-    color: var (--mystic-white);
+    background: var(--mystic-bg);
+    color: var(--text-on-dark);
     line-height: 1.6;
     overflow-x: hidden;
+    min-height: 100vh;
 }
 
 .sidebar {
-    width: 60px;
-    background: var(--gradient-cosmic);
-    border-right: 1px solid rgba(138, 43, 226, 0.1);
-    color: white;
-    height: 85vh;
+    width: 70px;
+    background: var(--mystic-sidebar);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    height: 90vh;
     position: fixed;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: var(--spacing-sm);
     z-index: 1000;
-    border-radius: 0 16px 16px 0;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-    left: var(--spacing-sm);
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+    left: 20px;
     top: 50%;
     transform: translateY(-50%);
     margin: 0;
@@ -120,15 +106,56 @@ body {
 
 /* ...existing code... */
 
+/* Hero Section */
+.hero-background {
+    position: relative;
+    height: 60vh;
+    width: 100%;
+    background-image: url('../images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2);
+    /* Reduced opacity from 0.5 to 0.2 */
+}
+
+.hero-title {
+    position: relative;
+    z-index: 1;
+    color: #ffffff;
+    font-family: 'Philosopher', sans-serif;
+    font-size: 4rem;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Update hero section */
 .hero-background {
     position: relative;
     width: 100%;
-    height: 420px;  /* Adjusted height */
-    margin-bottom: 80px; /* Increased margin for better separation */
+    height: 480px;
+    /* Increased from 360px */
+    margin-bottom: 40px;
+    /* Reduced margin */
     display: flex;
-    align-items: flex-end;  /* Changed from center to flex-end */
+    align-items: center;
+    /* Changed to center */
     justify-content: center;
     overflow: hidden;
+    flex-direction: column;
+    /* Add this to stack title and subtitle */
 }
 
 .hero-background::before {
@@ -139,10 +166,11 @@ body {
     width: 100%;
     height: 100%;
     background-image: url('../images/bck.jpg');
-    background-size: cover;  /* Changed back to cover */
-    background-position: center;
+    background-size: cover;
+    background-position: center 30%;
+    /* Adjusted position */
     background-repeat: no-repeat;
-    filter: brightness(0.95);
+    filter: brightness(0.9);
     z-index: 1;
 }
 
@@ -152,53 +180,87 @@ body {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 70%;  /* Increased height of gradient */
-    background: linear-gradient(to top,
-        var(--mystic-bg) 0%,
-        rgba(31, 20, 51, 0.95) 20%,
-        rgba(31, 20, 51, 0.7) 40%,
-        rgba(31, 20, 51, 0) 100%
-    );
+    height: 100%;
+    /* Cover full height */
+    background: linear-gradient(to bottom,
+            transparent 0%,
+            rgba(42, 157, 143, 0.3) 50%,
+            var(--mystic-dark) 100%);
     z-index: 2;
 }
 
-/* Ensure the title remains visible */
-.hero-title {
+.hero-background .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.7) 0%,
+            rgba(0, 0, 0, 0.5) 50%,
+            rgba(0, 0, 0, 0.3) 100%);
+}
+
+.hero-content {
     position: relative;
     z-index: 3;
-    color: var(--mystic-white);
     text-align: center;
-    font-size: 3.8rem;
+}
+
+.hero-title {
+    color: var(--mystic-white);
+    font-size: 3.2rem;
     font-family: 'Philosopher', sans-serif;
     text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.5);
-    margin-bottom: 40px;  /* Add bottom margin */
-    padding: 0 20px;  /* Added padding for better mobile display */
+    margin-bottom: 30px;
     letter-spacing: 2px;
+    line-height: 1.2;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
-/* Add new transition section */
+.hero-title .merkify-text {
+    color: #ffffff;
+    font-size: 5rem;
+    font-weight: 700;
+    text-shadow:
+        2px 2px 4px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.merkify-text {
+    display: block;
+    font-size: 4.5rem;
+    color: var(--mystic-secondary);
+    margin-top: 10px;
+    text-shadow:
+        0 0 10px rgba(142, 206, 193, 0.3),
+        0 0 20px rgba(142, 206, 193, 0.2);
+}
+
+/* Remove content transition */
 .content-transition {
-    position: relative;
-    height: 40px;
-    margin-top: -40px;
-    background: linear-gradient(to bottom,
-        transparent,
-        var(--mystic-bg)
-    );
-    z-index: 3;
+    display: none;
+    /* Remove the white transition */
 }
 
-/* ...existing code... */
-
+/* Adjust content spacing */
 .content {
     position: relative;
     max-width: 1400px;
     padding: 0 40px;
-    margin: -20px auto 0; /* Adjusted margin to overlap transition */
+    margin: -60px auto 0;
+    /* Pull content up */
     width: 100%;
     box-sizing: border-box;
-    background: var(--mystic-surface-gradient);
+    /* Remove the background that's causing the white overlay */
+    background: var(--mystic-bg);
+    padding-top: 40px;
     z-index: 4;
+    margin-left: 100px;
+    /* Account for sidebar */
+    width: calc(100% - 100px);
 }
 
 .content h1 {
@@ -229,9 +291,9 @@ body {
     font-size: 1.1rem;
     font-family: 'Cormorant Garamond', serif;
     min-width: 0;
-    background: rgba(31, 20, 51, 0.7);
-    color: var(--mystic-lavender);
-    border: 1px solid rgba(230, 230, 250, 0.1);
+    background: var(--mystic-dark);
+    color: var(--text-on-dark);
+    border: 1px solid var(--border-light);
 }
 
 .find-button {
@@ -283,12 +345,13 @@ body {
 }
 
 .services-section {
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--gradient-card);
     border-radius: 12px;
     padding: 1.5rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow-lg);
     max-width: 900px;
     margin: 0 auto 2rem;
+    backdrop-filter: blur(10px);
 }
 
 .filter-navigation {
@@ -452,29 +515,23 @@ h3::after {
     gap: 30px;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));  /* Adjusted from 280px */
-    gap: 20px;  /* Reduced from 24px */
-    padding: 16px 0;  /* Adjusted padding */
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    /* Adjusted from 280px */
+    gap: 20px;
+    /* Reduced from 24px */
+    padding: 16px 0;
+    /* Adjusted padding */
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .expert-card {
     background: var(--gradient-card);
-    backdrop-filter: blur(10px);
     border: 1px solid var(--border-light);
-    padding: 20px;  /* Reduced from 24px */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(145deg, 
-        rgba(31, 20, 51, 0.95),
-        rgba(31, 20, 51, 0.85)
-    );
-    border: 1px solid rgba(138, 43, 226, 0.15);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    height: auto;
-    min-height: 450px;  /* Set a minimum height */
+    box-shadow: var(--shadow-lg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
 }
 
 .expert-card::after {
@@ -490,8 +547,8 @@ h3::after {
 }
 
 .expert-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
 }
 
 .expert-card::before {
@@ -524,7 +581,8 @@ h3::after {
 
 .expert-image {
     width: 100%;
-    height: 180px;  /* Reduced from 200px */
+    height: 180px;
+    /* Reduced from 200px */
     object-fit: cover;
     border-radius: 12px;
     border: 3px solid var(--spiritual-cream);
@@ -532,32 +590,37 @@ h3::after {
 
 .expert-video {
     width: 100%;
-    height: 200px !important;  /* Force height with !important */
+    height: 200px !important;
+    /* Force height with !important */
     object-fit: cover;
-    object-position: center 20%; /* This centers horizontally and moves slightly up vertically */
+    object-position: center 20%;
+    /* This centers horizontally and moves slightly up vertically */
     border-radius: 12px 12px 0 0;
     display: block;
-    max-height: 200px;  /* Ensure maximum height */
+    max-height: 200px;
+    /* Ensure maximum height */
     overflow: hidden;
 }
 
 .profile-video {
     width: 100%;
-    max-height: 200px !important;  /* Force maximum height */
+    max-height: 200px !important;
+    /* Force maximum height */
     object-fit: cover;
-    object-position: center 25%; /* This helps center the face */
+    object-position: center 25%;
+    /* This helps center the face */
 }
 
 .expert-details {
-    padding: 12px 0;  /* Reduced from 15px */
+    padding: 12px 0;
+    /* Reduced from 15px */
     padding: 1.5rem;
     background: transparent;
 }
 
 .expert-title {
-    color: var(--spiritual-brown);
+    color: var(--mystic-secondary);
     font-style: italic;
-    color: var(--mystic-lavender);
     opacity: 0.9;
     font-size: 1.1rem;
     margin-bottom: 1rem;
@@ -568,14 +631,14 @@ h3::after {
     align-items: center;
     gap: 5px;
     margin: 10px 0;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--mystic-primary-10);
     padding: 0.5rem;
     border-radius: 8px;
     margin: 1rem 0;
 }
 
 .rating .star {
-    color: var(--spiritual-gold);
+    color: var(--mystic-secondary);
 }
 
 .reviews {
@@ -589,7 +652,7 @@ h3::after {
     justify-content: space-between;
     align-items: center;
     margin: 20px 0;
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--mystic-primary-10);
     padding: 0.75rem;
     border-radius: 8px;
     margin: 1rem 0;
@@ -598,7 +661,7 @@ h3::after {
 .price {
     font-weight: bold;
     font-size: 18px;
-    color: var(--mystic-white);
+    color: var(--text-on-dark);
     font-size: 1.2rem;
     font-weight: 600;
 }
@@ -609,30 +672,34 @@ h3::after {
 }
 
 .book-btn {
-    width: 100%;
-    padding: 12px;
-    background: var(--gradient-mystic);
-    color: var(--mystic-white);
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-bottom: 12px;
-    font-family: 'Philosopher', sans-serif;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 15px rgba(138, 43, 226, 0.2);
-    background: linear-gradient(135deg, #8A2BE2, #4B0082);
-    border: none;
-    color: white;
-    padding: 0.8rem;
-    border-radius: 8px;
+    background: var(--gradient-primary);
+    color: var(--text-on-dark);
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
     font-weight: 600;
-    margin-top: 1rem;
-    box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    margin: 1rem 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Philosopher', sans-serif;
+    text-align: center;
+    display: block;
+    text-decoration: none;
 }
 
 .book-btn:hover {
-    background-color: #1557b0;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    background: linear-gradient(135deg,
+            var(--btn-primary) 0%,
+            var(--btn-hover) 100%);
+}
+
+.book-btn:active {
+    transform: translateY(0);
+    background: var(--btn-active);
 }
 
 .about-btn {
@@ -640,9 +707,9 @@ h3::after {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    background: var(--mystic-violet-10);
-    color: var(--mystic-indigo);
-    border: 1px solid var(--border-medium);
+    background: var(--mystic-primary-10);
+    color: var(--text-on-dark);
+    border: 1px solid var(--border-light);
     padding: 12px;
     border-radius: 8px;
     cursor: pointer;
@@ -663,9 +730,8 @@ h3::after {
 }
 
 .about-btn:hover {
-    background-color: #f8f9fa;
-    border-color: #1a73e8;
-    color: #1a73e8;
+    background: var(--mystic-primary);
+    color: var (--text-on-dark);
     transform: translateY(-1px);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
@@ -687,7 +753,9 @@ h3::after {
 }
 
 .modal-content {
-    background-color: white;
+    background: var(--mystic-surface);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-lg);
     margin: 15% auto;
     padding: 20px;
     border-radius: 8px;
@@ -858,11 +926,11 @@ h3::after {
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--mystic-bg-dark);
+    background: var(--mystic-dark);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--mystic-violet);
+    background: var(--mystic-primary);
     border-radius: 5px;
 }
 
@@ -882,7 +950,7 @@ h3::after {
 }
 
 .crystal-search {
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+    background: var(--gradient-surface);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     padding: 40px;
@@ -911,10 +979,9 @@ h3::after {
 }
 
 .crystal-prompt {
-    background: linear-gradient(135deg, #c1945c, #7a4f3b);
+    background: var(--gradient-primary);
     -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: transparent;
     font-family: 'Philosopher', sans-serif;
     font-size: 1.8rem;
     font-weight: 600;
@@ -940,8 +1007,8 @@ h3::after {
     border-radius: 20px;
     font-size: 1.2rem;
     font-family: 'Cormorant Garamond', serif;
-    background: rgba(255, 255, 255, 0.95);
-    color: var(--spiritual-dark);
+    background: var (--mystic-surface);
+    color: var(--text-primary);
     resize: none;
     margin: 20px auto;
     display: none;
@@ -950,22 +1017,37 @@ h3::after {
 }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
 }
 
 @keyframes crystalFloat {
-    0%, 100% { 
-        transform: translateY(0) rotate(0deg); 
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
     }
-    50% { 
-        transform: translateY(-25px) rotate(2deg); 
+
+    50% {
+        transform: translateY(-25px) rotate(2deg);
     }
 }
 
 @keyframes crystal-glow {
-    0% { box-shadow: 0 0 20px rgba(193, 148, 92, 0.2); }
-    100% { box-shadow: 0 0 40px rgba(193, 148, 92, 0.4); }
+    0% {
+        box-shadow: 0 0 20px rgba(193, 148, 92, 0.2);
+    }
+
+    100% {
+        box-shadow: 0 0 40px rgba(193, 148, 92, 0.4);
+    }
 }
 
 .trust-indicators {
@@ -983,7 +1065,7 @@ h3::after {
     gap: 15px;
     background: var(--gradient-card);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(230, 230, 250, 0.1);
+    border: 1px solid var(--border-light);
     padding: 20px;
     border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -999,16 +1081,15 @@ h3::after {
 }
 
 .trust-text h4 {
-    color: var(--mystic-stardust);
+    color: var(--text-on-dark);
     margin: 0 0 5px 0;
     font-family: 'Philosopher', sans-serif;
 }
 
 .trust-text p {
-    color: var(--spiritual-brown);
+    color: var(--mystic-secondary);
     margin: 0;
     font-size: 0.9rem;
-    color: var(--mystic-lavender);
     opacity: 0.8;
 }
 
@@ -1025,7 +1106,7 @@ h3::after {
         height: 450px;
         margin: -20px auto -140px;
     }
-    
+
     .crystal-prompt {
         font-size: 1.3rem;
         margin: -25px auto 0;
@@ -1078,107 +1159,27 @@ h3::after {
 
 /* ...existing code... */
 
-.crystal-container {
-    position: relative;
-    text-align: center;
-    margin: -120px auto 80px;
-    padding: 0 20px;
-    z-index: 10;
-    background: none;
-    box-shadow: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0;
-}
-
-/* ...rest of existing code... */
-
-.crystal-input {
-    width: 70%;
-    min-height: 100px;
-    padding: 25px;
-    border: 2px solid rgba(122, 79, 59, 0.2);
-    border-radius: 15px;
-    font-size: 1.2rem;
-    font-family: 'Cormorant Garamond', serif;
-    background: var(--spiritual-white);
-    color: var (--spiritual-dark);
-    resize: none;
-    margin: 20px auto;
-    display: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 30px rgba(193, 148, 92, 0.2);
-}
-
-.crystal-btn {
-    padding: 12px 24px;
-    background: linear-gradient(135deg, var(--spiritual-brown), var(--spiritual-gold));
-    color: var(--spiritual-white);
-    font-family: 'Philosopher', sans-serif;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    margin: 20px auto;
-    width: 70%;
-    display: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(122, 79, 59, 0.2);
-}
-
-.crystal-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(122, 79, 59, 0.3);
-}
-
-.back-btn {
-    padding: 10px 20px;
-    background: rgba(193, 148, 92, 0.1);
-    color: var(--spiritual-brown);
-    border: 1px solid rgba(122, 79, 59, 0.2);
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 15px;
-    font-family: 'Philosopher', sans-serif;
-    margin: 20px auto;
-    display: none;
-    transition: all 0.3s ease;
-}
-
-.back-btn:hover {
-    background: rgba(193, 148, 92, 0.2);
-    transform: translateY(-1px);
-}
-
-.back-btn:before {
-    content: '←';
-    margin-right: 8px;
-}
-
 /* ...existing code... */
 
-/* ...existing code... */
-
+/* Update filter section position */
 .filter-container {
     width: 100%;
     max-width: 1200px;
-    margin: 0 auto 60px; /* Increased bottom margin */
+    margin: 0 auto 60px;
+    /* Increased bottom margin */
     padding: 0 20px;
+    margin-top: -20px;
+    /* Adjusted margin */
 }
 
 .filter-section {
-    background: linear-gradient(145deg, 
-        rgba(31, 20, 51, 0.98),
-        rgba(26, 16, 41, 0.95)
-    );
-    border: 1px solid rgba(138, 43, 226, 0.15);
-    box-shadow: 0 8px 32px rgba(122, 79, 59, 0.2),
-                0 4px 12px rgba(191, 41, 91, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    background: var(--gradient-card);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-lg);
     padding: 2rem;
     border-radius: 15px;
     position: relative;
+    backdrop-filter: blur(10px);
 }
 
 .filter-section::before {
@@ -1189,21 +1190,31 @@ h3::after {
     right: 0;
     height: 1px;
     background: linear-gradient(90deg,
-        transparent,
-        rgba(191, 41, 91, 0.3),
-        transparent
-    );
+            transparent,
+            rgba(191, 41, 91, 0.3),
+            transparent);
 }
 
 .filter-header {
-    color: var(--mystic-white);
-    font-size: 2rem;
+    color: var(--text-on-dark);
+    font-size: 1.8rem;
     letter-spacing: 0.5px;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     font-weight: 600;
     margin-bottom: 30px;
     padding-bottom: 15px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    border-bottom: 1px solid var(--border-light);
+    font-family: 'Philosopher', sans-serif;
+}
+
+.filter-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-light);
+    font-family: 'Philosopher', sans-serif;
 }
 
 .filter-header::after {
@@ -1234,9 +1245,8 @@ h3::after {
     gap: 8px;
     margin-bottom: 8px;
     font-size: 1.1rem;
-    color: var(--spiritual-brown);
+    color: var(--text-on-dark);
     font-family: 'Philosopher', sans-serif;
-    color: var(--mystic-lavender);
     opacity: 0.8;
     color: var(--mystic-white);
     opacity: 0.95;
@@ -1247,32 +1257,36 @@ h3::after {
 .filter-group select {
     width: 100%;
     padding: 14px 16px;
-    border: 1px solid var(--border-medium);
-    background-color: var(--mystic-white);
-    color: var(--mystic-charcoal);
+    background: var(--mystic-dark);
+    color: var(--text-on-dark);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
     font-family: 'Cormorant Garamond', serif;
     font-size: 1rem;
     transition: all 0.3s ease;
     cursor: pointer;
     appearance: none;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238A2BE2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
     background-repeat: no-repeat;
     background-position: right 12px center;
     background-size: 16px;
-    background: rgba(21, 13, 34, 0.9);
-    color: var(--mystic-white);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .filter-group select:hover {
-    border-color: rgba(255, 255, 255, 0.3);
-    background: rgba(31, 20, 51, 0.95);
+    border-color: var(--mystic-secondary);
+    background: var(--mystic-dark);
+}
+
+.filter-group select:focus {
+    border-color: rgba(138, 43, 226, 0.6);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.1);
 }
 
 .filter-group select option {
-    background: rgba(31, 20, 51, 0.98);
-    color: var(--mystic-white);
+    background: rgba(31, 20, 51, 0.95);
+    color: var(--mystic-lavender);
     padding: 10px;
 }
 
@@ -1282,69 +1296,61 @@ h3::after {
     gap: 15px;
     margin-top: 30px;
     padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.filter-btn {
-    padding: 12px 24px;
-    min-width: 120px;
-    max-width: 160px;
-    font-size: 0.95rem;
-    border-radius: 8px;
-    font-family: 'Philosopher', sans-serif;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(138, 43, 226, 0.15);
 }
 
 .reset-filter {
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--mystic-white);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: var(--mystic-primary-10);
+    color: var(--text-on-dark);
+    border: 1px solid var(--border-light);
+    transition: all 0.3s ease;
 }
 
 .reset-filter:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(138, 43, 226, 0.15);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 .apply-filter {
-    background: linear-gradient(135deg, #8A2BE2, #4B0082);
-    color: var(--mystic-white);
+    background: var(--gradient-primary);
+    color: var (--text-on-dark);
     border: none;
-    box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3),
-                0 2px 8px rgba(191, 41, 91, 0.2);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
 }
 
 .apply-filter:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(138, 43, 226, 0.4),
-                0 4px 12px rgba(191, 41, 91, 0.3);
+    box-shadow: 0 6px 20px rgba(138, 43, 226, 0.3);
+    background: linear-gradient(135deg, #9B4DE3, #5B1092);
 }
 
 /* Update expert section spacing */
 .experts-container {
-    margin-top: 40px;
-    padding: 2rem;
-    background: var(--mystic-bg);
+    margin-top: 2rem;
+    padding: 0 2rem;
+    background: transparent !important;
 }
 
 .expert-cards {
-    gap: 30px; /* Increased gap between cards */
-    padding: 20px 0; /* Added vertical padding */
+    gap: 30px;
+    /* Increased gap between cards */
+    padding: 20px 0;
+    /* Added vertical padding */
 }
 
 /* Adjust responsive styles */
 @media (max-width: 768px) {
     .filter-buttons {
-        flex-direction: row; /* Keep buttons side by side on mobile */
+        flex-direction: row;
+        /* Keep buttons side by side on mobile */
         justify-content: center;
     }
 
     .filter-btn {
-        flex: 0 1 auto; /* Don't allow buttons to grow too wide */
+        flex: 0 1 auto;
+        /* Don't allow buttons to grow too wide */
         min-width: 100px;
     }
 }
@@ -1426,7 +1432,7 @@ h3::after {
         font-size: 0.75rem;
         min-width: 50px;
     }
-    
+
     .filter-buttons {
         flex-wrap: wrap;
         justify-content: center;

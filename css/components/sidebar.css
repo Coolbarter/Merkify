@@ -1,37 +1,34 @@
 :root {
-    --spiritual-brown: #7a4f3b;
-    --spiritual-gold: #c1945c;
-    --spiritual-cream: #f6f4ee;
-    --spiritual-white: #fff;
-    --spiritual-dark: #2c1810;
-    --spiritual-accent: #10b981;
     --spacing-sm: 1rem;
     --spacing-md: 1.5rem;
-    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar {
     width: 60px;
-    background: var(--gradient-cosmic);
-    border-right: 1px solid rgba(138, 43, 226, 0.1);
-    color: white;
+    background: var(--cosmic-sidebar);
+    border-right: 1px solid var(--border-light);
+    color: var(--text-primary);
     height: 85vh;
     position: fixed !important;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: var(--spacing-sm);
-    z-index: 10000 !important;  /* Increased z-index to ensure visibility */
+    z-index: 10000 !important;
+    /* Increased z-index to ensure visibility */
     border-radius: 0 16px 16px 0;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-    left: 0 !important;  /* Changed from var(--spacing-sm) to 0 */
+    box-shadow: var(--shadow-sm);
+    left: 0 !important;
+    /* Changed from var(--spacing-sm) to 0 */
     top: 50% !important;
     transform: translateY(-50%) !important;
     margin: 0;
-    opacity: 1 !important; /* Ensure visibility */
-    visibility: visible !important; /* Ensure visibility */
+    opacity: 1 !important;
+    /* Ensure visibility */
+    visibility: visible !important;
+    /* Ensure visibility */
     transition: all 0.3s ease;
-    background: linear-gradient(to bottom, #2c1810, #7a4f3b) !important;
+    background: var(--gradient-cosmic) !important;
 }
 
 .nav-items {
@@ -54,7 +51,7 @@
     justify-content: center;
     transition: all 0.3s ease;
     border-radius: 12px;
-    color: var(--mystic-white);
+    color: var(--text-on-dark);
     font-size: 1.1rem;
     position: relative;
     gap: 4px;
@@ -90,7 +87,7 @@
 
 .nav-item:hover {
     transform: scale(1.1);
-    background: var(--mystic-violet-10);
+    background: var(--interactive-hover);
     transform: translateY(-2px);
 }
 
@@ -106,7 +103,8 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    z-index: 10000;  /* Ensure it's above other elements */
+    z-index: 10000;
+    /* Ensure it's above other elements */
 }
 
 .nav-item.avatar img {
@@ -114,33 +112,41 @@
     height: 32px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid var(--spiritual-cream);
+    border: 2px solid var(--cosmic-white);
     transition: transform 0.2s ease;
-    pointer-events: auto;  /* Enable click events */
+    pointer-events: auto;
+    /* Enable click events */
 }
 
 .nav-item.avatar img:hover {
     transform: scale(1.1);
-    border-color: var(--spiritual-accent);
+    border-color: var(--cosmic-accent);
 }
 
 /* Profile Menu Styles */
 .profile-menu {
-    position: fixed !important; /* Change to fixed */
-    left: 70px !important;  /* Adjust position */
-    top: 50% !important;   /* Center vertically */
+    position: fixed !important;
+    /* Change to fixed */
+    left: 70px !important;
+    /* Adjust position */
+    top: 50% !important;
+    /* Center vertically */
     transform: translateY(-50%) !important;
     width: 280px;
-    background: #fff;
+    background: var(--cosmic-surface);
     border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.2);
-    display: none; /* Changed from visibility: hidden */
-    z-index: 10001 !important;  /* Ensure it's above the avatar */
+    box-shadow: var(--shadow-lg);
+    display: none;
+    /* Changed from visibility: hidden */
+    z-index: 10001 !important;
+    /* Ensure it's above the avatar */
     pointer-events: auto !important;
+    color: var(--text-primary);
 }
 
 .profile-menu.active {
-    display: block; /* Changed from visibility: visible */
+    display: block;
+    /* Changed from visibility: visible */
     animation: menuFadeIn 0.3s ease forwards;
 }
 
@@ -149,6 +155,7 @@
         opacity: 0;
         transform: translateX(-10px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -177,7 +184,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--border-light);
 }
 
 .menu-header img {
@@ -185,7 +192,7 @@
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #f3f4f6;
+    border: 2px solid var(--border-light);
 }
 
 .menu-items {
@@ -197,22 +204,25 @@
 
 .menu-items .menu-link {
     display: flex;
-    align-items: center;  /* Ensure vertical centering */
+    align-items: center;
+    /* Ensure vertical centering */
     padding: 10px 16px;
     text-decoration: none;
-    color: #333;
+    color: var(--text-primary);
     transition: all 0.2s ease;
     border-radius: 8px;
     width: 100%;
     box-sizing: border-box;
     position: relative;
-    min-height: 44px;  /* Ensure consistent height */
+    min-height: 44px;
+    /* Ensure consistent height */
 }
 
 .menu-items .menu-link span {
     flex: 1;
     text-align: center;
-    padding-right: 24px; /* Add padding to offset the icon width */
+    padding-right: 24px;
+    /* Add padding to offset the icon width */
 }
 
 .profile-icon {
@@ -220,34 +230,37 @@
     align-items: center;
     justify-content: center;
     width: 24px;
-    height: 24px;  /* Fixed height */
+    height: 24px;
+    /* Fixed height */
     margin-right: 12px;
     font-style: normal;
-    font-size: 18px;  /* Consistent icon size */
-    align-self: center;  /* Ensure vertical centering */
+    font-size: 18px;
+    /* Consistent icon size */
+    align-self: center;
+    /* Ensure vertical centering */
 }
 
 .menu-items .menu-link:hover {
-    background-color: #f5f5f5;
+    background-color: var(--interactive-hover);
 }
 
 .menu-divider {
     height: 1px;
-    background-color: #eee;
+    background-color: var(--border-light);
     margin: 8px 0;
     width: 100%;
 }
 
 .logout {
-    color: #dc2626 !important;
+    color: var(--cosmic-alert) !important;
 }
 
 .become-expert-btn {
     display: block;
     margin: 15px 20px;
     padding: 12px 20px;
-    background-color: var(--spiritual-accent);
-    color: white;
+    background-color: var(--cosmic-success);
+    color: var(--text-on-dark);
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -258,7 +271,7 @@
 }
 
 .become-expert-btn:hover {
-    background-color: #059669;
+    background-color: var(--cosmic-accent);
 }
 
 @media (max-width: 768px) {
@@ -275,10 +288,11 @@
 /* Add new toggle button styles */
 .sidebar-toggle {
     position: fixed;
-    left: 70px;  /* Position it next to the sidebar */
+    left: 70px;
+    /* Position it next to the sidebar */
     top: 50%;
     transform: translateY(-50%);
-    background: var(--spiritual-accent);
+    background: var(--mystic-primary);
     border: none;
     border-radius: 50%;
     width: 32px;
@@ -288,7 +302,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--text-on-dark);
     transition: all 0.3s ease;
 }
 
@@ -308,11 +322,13 @@
     height: 100vh;
     width: auto;
     z-index: 10000;
-    pointer-events: none; /* Allow clicking through container */
+    pointer-events: none;
+    /* Allow clicking through container */
 }
 
-#sidebar-container > * {
-    pointer-events: auto; /* Enable clicks on sidebar elements */
+#sidebar-container>* {
+    pointer-events: auto;
+    /* Enable clicks on sidebar elements */
 }
 
 #sidebar-container * {
