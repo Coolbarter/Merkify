@@ -382,12 +382,13 @@
         document.querySelector('.crystal-image').style.transform = 'scale(1)';
     });
     </script>
+    <script src="./js/profile.js"></script>
+    <script src="./js/profileMenu.js"></script>
     <script>
         // Load sidebar with absolute path
         fetch('/components/sidebar.html')
             .then(response => {
                 if (!response.ok) {
-                    // Try relative path if absolute fails
                     return fetch('./components/sidebar.html');
                 }
                 return response;
@@ -395,15 +396,12 @@
             .then(response => response.text())
             .then(data => {
                 document.getElementById('sidebar-container').innerHTML = data;
-                // Initialize sidebar
-                const sidebarScript = document.createElement('script');
-                sidebarScript.src = './js/sidebar.js';
-                document.body.appendChild(sidebarScript);
+                // Initialize profile menu after sidebar is loaded
+                initializeProfileMenu();
             })
             .catch(error => {
                 console.error('Error loading sidebar:', error);
             });
     </script>
-    <script src="./js/profile.js"></script>
 </body>
 </html>

@@ -3,6 +3,12 @@
     --spacing-md: 1.5rem;
 }
 
+.profile-container {
+    position: relative;
+    width: 40px;
+    height: 50px;
+}
+
 .sidebar {
     width: 60px;
     background: var(--cosmic-sidebar);
@@ -97,14 +103,13 @@
     border: none;
     padding: 0;
     cursor: pointer;
-    width: 40px;
-    height: 50px;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    z-index: 10000;
-    /* Ensure it's above other elements */
+    z-index: 1;
 }
 
 .nav-item.avatar img {
@@ -123,31 +128,27 @@
     border-color: var(--cosmic-accent);
 }
 
-/* Profile Menu Styles */
+/* Update profile menu styles */
 .profile-menu {
-    position: fixed !important;
-    /* Change to fixed */
-    left: 70px !important;
-    /* Adjust position */
-    top: 50% !important;
-    /* Center vertically */
-    transform: translateY(-50%) !important;
+    position: absolute;
+    left: calc(100% + 10px);
+    top: 50%;
+    transform: translateY(-50%);
     width: 280px;
-    background: var(--cosmic-surface);
+    background: #ffffff;
+    color: #333333;
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 15px;
     box-shadow: var(--shadow-lg);
     display: none;
-    /* Changed from visibility: hidden */
-    z-index: 10001 !important;
-    /* Ensure it's above the avatar */
-    pointer-events: auto !important;
-    color: var(--text-primary);
+    opacity: 0;
+    z-index: 1000;
+    transition: opacity 0.3s ease;
 }
 
 .profile-menu.active {
     display: block;
-    /* Changed from visibility: visible */
-    animation: menuFadeIn 0.3s ease forwards;
+    opacity: 1;
 }
 
 @keyframes menuFadeIn {
@@ -168,13 +169,13 @@
 }
 
 .user-info h4 {
-    color: var(--spiritual-dark);
+    color: #333333;
     margin: 0;
     font-size: 1.1rem;
 }
 
 .user-info p {
-    color: var(--spiritual-brown);
+    color: #666666;
     margin: 5px 0 0;
     font-size: 0.9rem;
 }
@@ -208,7 +209,7 @@
     /* Ensure vertical centering */
     padding: 10px 16px;
     text-decoration: none;
-    color: var(--text-primary);
+    color: #333333;
     transition: all 0.2s ease;
     border-radius: 8px;
     width: 100%;
@@ -241,12 +242,12 @@
 }
 
 .menu-items .menu-link:hover {
-    background-color: var(--interactive-hover);
+    background-color: #f5f5f5;
 }
 
 .menu-divider {
     height: 1px;
-    background-color: var(--border-light);
+    background-color: #e0e0e0;
     margin: 8px 0;
     width: 100%;
 }

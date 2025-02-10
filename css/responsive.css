@@ -1,5 +1,6 @@
 /* Mobile Responsive Styles */
 @media screen and (max-width: 768px) {
+
     /* Layout adjustments */
     .container {
         padding: 0.5rem;
