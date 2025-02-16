@@ -300,6 +300,21 @@
             }
         });
 
+        // Add these lines at the end of the script section
+        document.querySelectorAll('.book-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                window.location.href = './payment.html';
+            });
+        });
+
+        // For the "Book Now" button in the service configuration section
+        const serviceBookBtn = document.querySelector('.service-config .book-btn');
+        if (serviceBookBtn) {
+            serviceBookBtn.addEventListener('click', () => {
+                window.location.href = './payment.html';
+            });
+        }
+
         // Rest of your existing script...
     </script>
 </body>
