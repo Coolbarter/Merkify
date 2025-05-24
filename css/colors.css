@@ -1,31 +1,29 @@
 :root {
-    /* Core Colors - Natural & Mystical Theme */
-    --mystic-primary: #2A9D8F;
-    /* Deep Sage */
-    --mystic-secondary: #8ECEC1;
-    /* Soft Jade */
-    --mystic-accent: #43AA8B;
-    /* Forest Mist */
+    /* Core Colors - Mystical & Premium Theme */
+    --mystic-primary: #8A2BE2;
+    /* Rich Purple */
+    --mystic-secondary: #9B4DE3;
+    /* Soft Purple */
+    --mystic-accent: #D4AF37;
+    /* Rich Gold */
     --mystic-white: #FFFFFF;
     /* Pure White */
-    --mystic-dark: #1B4D46;
-    /* Deep Forest */
+    --mystic-dark: #2D1B4D;
+    /* Deep Purple */
 
-    /* Enhanced Background Colors - Lighter Theme */
-    --mystic-bg: #F5F8F7;
-    /* Very light green-white */
-    --mystic-surface: #FFFFFF;
+    /* Enhanced Background Colors - Light Theme */
+    --mystic-bg: #FFFFFF;
+    /* Pure White */
+    --mystic-surface: #F8F5FF;
+    /* Very light purple-white */
     --mystic-sidebar: linear-gradient(180deg,
-            #2A9D8F 0%,
-            #1B4D46 100%);
+            #8A2BE2 0%,
+            #2D1B4D 100%);
 
     /* Hero Overlay Colors - Adjusted */
     --hero-overlay-start: transparent;
-    /* Vibrant Sage */
-    --hero-overlay-mid: rgba(42, 157, 143, 0.4);
-    /* Forest Green */
-    --hero-overlay-end: rgba(27, 77, 70, 0.95);
-    /* Mystic Forest */
+    --hero-overlay-mid: rgba(138, 43, 226, 0.4);
+    --hero-overlay-end: rgba(45, 27, 77, 0.95);
 
     /* Hero Gradient */
     --hero-gradient: linear-gradient(to bottom,
@@ -34,69 +32,69 @@
             var(--hero-overlay-end) 100%);
 
     /* Alternative Background */
-    --cosmic-bg: #15352F;
-    /* Deep Forest */
-    --cosmic-surface: #1F433C;
-    /* Mystical Grove */
+    --cosmic-bg: #2D1B4D;
+    /* Deep Purple */
+    --cosmic-surface: #3D2B5D;
+    /* Mystical Purple */
 
     /* Main Gradients - Enhanced */
     --gradient-primary: linear-gradient(135deg,
-            #34D399 0%,
-            /* Bright Emerald */
-            #059669 100%
-            /* Deep Emerald */
+            #D4AF37 0%,
+            /* Rich Gold */
+            #B8860B 100%
+            /* Dark Goldenrod */
         );
 
     --gradient-surface: linear-gradient(145deg,
-            rgba(168, 230, 207, 0.95) 0%,
-            /* Light Mint */
-            rgba(86, 171, 47, 0.98) 100%
-            /* Deep Forest */
+            rgba(248, 245, 255, 0.95) 0%,
+            /* Light Purple */
+            rgba(138, 43, 226, 0.98) 100%
+            /* Rich Purple */
         );
 
     --gradient-card: linear-gradient(145deg,
-            rgba(42, 157, 143, 0.95) 0%,
-            rgba(27, 77, 70, 0.98) 100%);
+            rgba(138, 43, 226, 0.95) 0%,
+            rgba(45, 27, 77, 0.98) 100%);
 
     /* Cosmic Gradient - Enhanced */
     --gradient-cosmic: linear-gradient(180deg,
-            rgba(27, 77, 70, 0.95) 0%,
-            rgba(66, 158, 130, 0.98) 100%);
+            rgba(45, 27, 77, 0.95) 0%,
+            rgba(138, 43, 226, 0.98) 100%);
 
     /* Transparent Variations */
-    --mystic-primary-10: rgba(42, 157, 143, 0.1);
-    --mystic-secondary-10: rgba(142, 206, 193, 0.1);
+    --mystic-primary-10: rgba(138, 43, 226, 0.1);
+    --mystic-secondary-10: rgba(155, 77, 227, 0.1);
 
     /* Text Colors */
-    --text-primary: #1B4D46;
-    /* Deep Forest */
-    --text-secondary: #558B83;
-    /* Muted Sage */
-    --text-on-dark: #E8F3F1;
-    /* Light Mist */
+    --text-primary: #2D1B4D;
+    /* Deep Purple */
+    --text-secondary: #6B4B83;
+    /* Muted Purple */
+    --text-on-dark: #F8F5FF;
+    /* Light Purple */
 
     /* Interaction Colors */
-    --interactive-hover: rgba(42, 157, 143, 0.15);
-    --interactive-active: rgba(42, 157, 143, 0.25);
-    --interactive-focus: #64B6AC;
+    --interactive-hover: rgba(138, 43, 226, 0.15);
+    --interactive-active: rgba(138, 43, 226, 0.25);
+    --interactive-focus: #9B4DE3;
 
     /* Shadows & Borders */
-    --shadow-sm: 0 2px 8px rgba(27, 77, 70, 0.1);
-    --shadow-lg: 0 8px 24px rgba(27, 77, 70, 0.15);
-    --border-light: rgba(142, 206, 193, 0.2);
-    --border-medium: rgba(142, 206, 193, 0.3);
+    --shadow-sm: 0 2px 8px rgba(45, 27, 77, 0.1);
+    --shadow-lg: 0 8px 24px rgba(45, 27, 77, 0.15);
+    --border-light: rgba(155, 77, 227, 0.2);
+    --border-medium: rgba(155, 77, 227, 0.3);
 
     /* Focus States */
-    --focus-outline: 3px solid rgba(100, 182, 172, 0.5);
-    --focus-ring: 0 0 0 3px rgba(100, 182, 172, 0.4);
+    --focus-outline: 3px solid rgba(155, 77, 227, 0.5);
+    --focus-ring: 0 0 0 3px rgba(155, 77, 227, 0.4);
 
     /* Button Colors */
-    --btn-primary: #34D399;
-    /* Bright Emerald */
-    --btn-hover: #059669;
-    /* Deep Emerald */
-    --btn-active: #047857;
-    /* Forest Emerald */
+    --btn-primary: #D4AF37;
+    /* Rich Gold */
+    --btn-hover: #B8860B;
+    /* Dark Goldenrod */
+    --btn-active: #996515;
+    /* Darker Gold */
 }
 
 /* Utility Classes */

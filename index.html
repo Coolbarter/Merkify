@@ -13,131 +13,143 @@
     <!-- Sidebar container should be first in body -->
     <div id="sidebar-container"></div>
 
-    <div class="hero-background">
-        <div class="overlay"></div>
-        <h1 class="hero-title">
-            Discover Mystical Services with
-            <span class="merkify-text">Merkify</span>
-        </h1>
-    </div>
-    
-    <div class="content-transition"></div>
-
     <main class="content">
-        <div class="filter-container">
-            <div class="filter-section">
-                <h2 class="filter-header">Filter Experts</h2>
-                <div class="filter-grid">
-                    <div class="filter-group">
-                        <label for="price-range">
-                            <i class="filter-icon">💰</i>
-                            Price Range
-                        </label>
-                        <select id="price-range">
-                            <option value="">All Prices</option>
-                            <option value="0-50">$0 - $50</option>
-                            <option value="51-100">$51 - $100</option>
-                            <option value="101+">$101+</option>
-                        </select>
+        <div id="expert-section" class="experts-container">
+            <div class="experts-header">
+                <h2>Our Expert Readers</h2>
+                <button class="filter-toggle-btn" onclick="toggleFilterPanel()">
+                    <i class="filter-icon">🔮</i>
+                    Filter
+                </button>
+            </div>
+
+            <div id="filter-panel" class="filter-panel">
+                <div class="filter-section">
+                    <div class="filter-header">
+                        <h2>Filter Experts</h2>
+                        <button class="close-filter" onclick="toggleFilterPanel()">×</button>
                     </div>
-                    <div class="filter-group">
-                        <label for="expertise">
-                            <i class="filter-icon">✨</i>
-                            Expertise
-                        </label>
-                        <select id="expertise">
-                            <option value="">All Expertise</option>
-                            <option value="numerology">Numerology</option>
-                            <option value="tarot">Tarot Reading</option>
-                            <option value="astrology">Astrology</option>
-                        </select>
+                    
+                    <div class="filter-content">
+                        <!-- Sort by -->
+                        <div class="filter-group">
+                            <label for="sort-by">
+                                <i class="filter-icon">↕️</i>
+                                Sort By
+                            </label>
+                            <select id="sort-by">
+                                <option value="">Select Sort Option</option>
+                                <option value="name-za">Name - Z-A</option>
+                                <option value="price-low-high">Price - Low to High</option>
+                                <option value="price-high-low">Price - High to Low</option>
+                            </select>
+                        </div>
+
+                        <!-- Status Filter -->
+                        <div class="filter-group">
+                            <label for="status">
+                                <i class="filter-icon">🟢</i>
+                                Status
+                            </label>
+                            <select id="status">
+                                <option value="">All Status</option>
+                                <option value="offline">Offline</option>
+                                <option value="online">Online</option>
+                                <option value="busy">Busy</option>
+                            </select>
+                        </div>
+
+                        <!-- Special Tags -->
+                        <div class="filter-group">
+                            <label for="special-tags">
+                                <i class="filter-icon">🏆</i>
+                                Special Tags
+                            </label>
+                            <select id="special-tags">
+                                <option value="">All Tags</option>
+                                <option value="top-rated">Top Rated</option>
+                                <option value="very-popular">Very Popular</option>
+                                <option value="rising-talent">Rising Talent</option>
+                                <option value="newly-joined">Newly Joined</option>
+                                <option value="staff-pick">Staff Pick</option>
+                            </select>
+                        </div>
+
+                        <!-- Specialties -->
+                        <div class="filter-group">
+                            <label for="specialties">
+                                <i class="filter-icon">✨</i>
+                                Specialties
+                            </label>
+                            <select id="specialties">
+                                <option value="">All Specialties</option>
+                                <option value="loved-ones">Loved Ones</option>
+                                <option value="general-guidance">General Guidance</option>
+                                <option value="past-lives">Past Lives</option>
+                                <option value="career">Career</option>
+                                <option value="love-family">Love & Family</option>
+                                <option value="friends">Friends</option>
+                                <option value="destiny">Destiny & Life Path</option>
+                                <option value="pets">Pets</option>
+                            </select>
+                        </div>
+
+                        <!-- Subjects & Expertise -->
+                        <div class="filter-group">
+                            <label for="expertise">
+                                <i class="filter-icon">🎯</i>
+                                Subjects & Expertise
+                            </label>
+                            <select id="expertise">
+                                <option value="">All Expertise</option>
+                                <option value="love-relationships">Love, Relationships & Family</option>
+                                <option value="career-finance">Career & Finance</option>
+                                <option value="loss-grieving">Loss & Grieving</option>
+                                <option value="dream-interpretation">Dream Interpretation</option>
+                            </select>
+                        </div>
+
+                        <!-- Tools -->
+                        <div class="filter-group">
+                            <label for="tools">
+                                <i class="filter-icon">🔮</i>
+                                Tools
+                            </label>
+                            <select id="tools">
+                                <option value="">All Tools</option>
+                                <option value="no-tools">No Tools</option>
+                                <option value="angel-cards">Angel Cards</option>
+                                <option value="birth-chart">Birth Chart</option>
+                                <option value="crystals">Crystals</option>
+                                <option value="mediums">Mediums</option>
+                                <option value="numerology">Numerology</option>
+                                <option value="dowsing">Dowsing</option>
+                                <option value="tarot">Tarot</option>
+                                <option value="clairvoyant">Clairvoyant</option>
+                                <option value="cartomancy">Cartomancy</option>
+                                <option value="energy-healing">Energy Healing</option>
+                                <option value="empath">Empath</option>
+                                <option value="palm-reading">Palm Reading</option>
+                                <option value="astrology">Astrology</option>
+                                <option value="clairaudient">Clairaudient</option>
+                                <option value="reiki">Reiki/Healing</option>
+                                <option value="clairsentient">Clairsentient</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="filter-group">
-                        <label for="experience">
-                            <i class="filter-icon">⭐</i>
-                            Experience
-                        </label>
-                        <select id="experience">
-                            <option value="">Any Experience</option>
-                            <option value="1-3">1-3 years</option>
-                            <option value="4-7">4-7 years</option>
-                            <option value="8+">8+ years</option>
-                        </select>
+
+                    <div class="filter-buttons">
+                        <button class="filter-btn reset-filter" onclick="resetFilters()">Reset All</button>
+                        <button class="filter-btn apply-filter" onclick="applyFilters()">Apply Filters</button>
                     </div>
-                    <div class="filter-group">
-                        <label for="location">
-                            <i class="filter-icon">📍</i>
-                            Location
-                        </label>
-                        <select id="location">
-                            <option value="">All Locations</option>
-                            <option value="us">United States</option>
-                            <option value="uk">United Kingdom</option>
-                            <option value="ca">Canada</option>
-                            <option value="au">Australia</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label for="filter5">
-                            <i class="filter-icon">🌟</i>
-                            Filter 5
-                        </label>
-                        <select id="filter5">
-                            <option value="">All Options</option>
-                            <option value="option1">Option 1</option>
-                            <option value="option2">Option 2</option>
-                            <option value="option3">Option 3</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label for="filter6">
-                            <i class="filter-icon">🎯</i>
-                            Filter 6
-                        </label>
-                        <select id="filter6">
-                            <option value="">All Options</option>
-                            <option value="option1">Option 1</option>
-                            <option value="option2">Option 2</option>
-                            <option value="option3">Option 3</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label for="filter7">
-                            <i class="filter-icon">🔮</i>
-                            Filter 7
-                        </label>
-                        <select id="filter7">
-                            <option value="">All Options</option>
-                            <option value="option1">Option 1</option>
-                            <option value="option2">Option 2</option>
-                            <option value="option3">Option 3</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label for="filter8">
-                            <i class="filter-icon">✨</i>
-                            Filter 8
-                        </label>
-                        <select id="filter8">
-                            <option value="">All Options</option>
-                            <option value="option1">Option 1</option>
-                            <option value="option2">Option 2</option>
-                            <option value="option3">Option 3</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="filter-buttons">
-                    <button class="filter-btn reset-filter" onclick="resetFilters()">Reset All</button>
-                    <button class="filter-btn apply-filter" onclick="applyFilters()">Apply Filters</button>
                 </div>
             </div>
-        </div>
 
-        <div id="expert-section" class="experts-container">
             <div class="expert-cards">
+                <!-- First Row -->
                 <div class="expert-card">
                     <div class="status-badge online">Online</div>
-                    <video class="expert-video profile-video" autoplay muted loop playsinline style="max-height: 200px;">
+                    <video class="expert-video profile-video" autoplay muted loop playsinline>
                         <source src="./video/video.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -156,23 +168,184 @@
                                 <span>📍</span>
                             </div>
                         </div>
-                        <button class="book-btn">Book Session</button>
-                        <a href="./expert_profile.html" class="about-btn">View Profile</a>
+                        <div class="button-container">
+                            <button class="book-btn">Book Session</button>
+                            <a href="./expert_profile.html" class="about-btn">View Profile</a>
+                        </div>
                     </div>
                 </div>
+
                 <div class="expert-card">
-                    <div class="status-badge online">Online</div>
-                    <video class="expert-video profile-video" autoplay muted loop playsinline style="max-height: 200px;">
+                    <div class="status-badge busy">Busy</div>
+                    <video class="expert-video profile-video" autoplay muted loop playsinline>
                         <source src="./video/video.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <div class="expert-details">
-                        <h3>Sarah Miller</h3>
+                        <h3>Michael Chen</h3>
+                        <p class="expert-title">Tarot Reader</p>
+                        <div class="rating">
+                            <span class="star">⭐</span>
+                            <span>4.9</span>
+                            <span class="reviews">(203)</span>
+                        </div>
+                        <div class="price-info">
+                            <span class="price">$85/hr</span>
+                            <div class="icons">
+                                <span>📹</span>
+                                <span>📍</span>
+                            </div>
+                        </div>
+                        <button class="book-btn">Book Session</button>
+                        <a href="./expert_profile.html" class="about-btn">View Profile</a>
+                    </div>
+                </div>
+
+                <div class="expert-card">
+                    <div class="status-badge online">Online</div>
+                    <video class="expert-video profile-video" autoplay muted loop playsinline>
+                        <source src="./video/video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="expert-details">
+                        <h3>Emma Thompson</h3>
+                        <p class="expert-title">Astrologer</p>
+                        <div class="rating">
+                            <span class="star">⭐</span>
+                            <span>4.7</span>
+                            <span class="reviews">(156)</span>
+                        </div>
+                        <div class="price-info">
+                            <span class="price">$65/hr</span>
+                            <div class="icons">
+                                <span>📹</span>
+                                <span>📍</span>
+                            </div>
+                        </div>
+                        <button class="book-btn">Book Session</button>
+                        <a href="./expert_profile.html" class="about-btn">View Profile</a>
+                    </div>
+                </div>
+
+                <!-- Second Row -->
+                <div class="expert-card">
+                    <div class="status-badge offline">Offline</div>
+                    <video class="expert-video profile-video" autoplay muted loop playsinline>
+                        <source src="./video/video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="expert-details">
+                        <h3>David Wilson</h3>
+                        <p class="expert-title">Medium</p>
+                        <div class="rating">
+                            <span class="star">⭐</span>
+                            <span>4.9</span>
+                            <span class="reviews">(189)</span>
+                        </div>
+                        <div class="price-info">
+                            <span class="price">$95/hr</span>
+                            <div class="icons">
+                                <span>📹</span>
+                                <span>📍</span>
+                            </div>
+                        </div>
+                        <button class="book-btn">Book Session</button>
+                        <a href="./expert_profile.html" class="about-btn">View Profile</a>
+                    </div>
+                </div>
+
+                <div class="expert-card">
+                    <div class="status-badge online">Online</div>
+                    <video class="expert-video profile-video" autoplay muted loop playsinline>
+                        <source src="./video/video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="expert-details">
+                        <h3>Sophia Lee</h3>
+                        <p class="expert-title">Clairvoyant</p>
+                        <div class="rating">
+                            <span class="star">⭐</span>
+                            <span>4.8</span>
+                            <span class="reviews">(142)</span>
+                        </div>
+                        <div class="price-info">
+                            <span class="price">$80/hr</span>
+                            <div class="icons">
+                                <span>📹</span>
+                                <span>📍</span>
+                            </div>
+                        </div>
+                        <button class="book-btn">Book Session</button>
+                        <a href="./expert_profile.html" class="about-btn">View Profile</a>
+                    </div>
+                </div>
+
+                <div class="expert-card">
+                    <div class="status-badge busy">Busy</div>
+                    <video class="expert-video profile-video" autoplay muted loop playsinline>
+                        <source src="./video/video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="expert-details">
+                        <h3>James Anderson</h3>
+                        <p class="expert-title">Palm Reader</p>
+                        <div class="rating">
+                            <span class="star">⭐</span>
+                            <span>4.7</span>
+                            <span class="reviews">(98)</span>
+                        </div>
+                        <div class="price-info">
+                            <span class="price">$70/hr</span>
+                            <div class="icons">
+                                <span>📹</span>
+                                <span>📍</span>
+                            </div>
+                        </div>
+                        <button class="book-btn">Book Session</button>
+                        <a href="./expert_profile.html" class="about-btn">View Profile</a>
+                    </div>
+                </div>
+
+                <!-- Third Row -->
+                <div class="expert-card">
+                    <div class="status-badge online">Online</div>
+                    <video class="expert-video profile-video" autoplay muted loop playsinline>
+                        <source src="./video/video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="expert-details">
+                        <h3>Olivia Martinez</h3>
+                        <p class="expert-title">Energy Healer</p>
+                        <div class="rating">
+                            <span class="star">⭐</span>
+                            <span>4.9</span>
+                            <span class="reviews">(167)</span>
+                        </div>
+                        <div class="price-info">
+                            <span class="price">$90/hr</span>
+                            <div class="icons">
+                                <span>📹</span>
+                                <span>📍</span>
+                            </div>
+                        </div>
+                        <button class="book-btn">Book Session</button>
+                        <a href="./expert_profile.html" class="about-btn">View Profile</a>
+                    </div>
+                </div>
+
+                <div class="expert-card">
+                    <div class="status-badge offline">Offline</div>
+                    <video class="expert-video profile-video" autoplay muted loop playsinline>
+                        <source src="./video/video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="expert-details">
+                        <h3>Robert Taylor</h3>
                         <p class="expert-title">Numerologist</p>
                         <div class="rating">
                             <span class="star">⭐</span>
                             <span>4.8</span>
-                            <span class="reviews">(127)</span>
+                            <span class="reviews">(134)</span>
                         </div>
                         <div class="price-info">
                             <span class="price">$75/hr</span>
@@ -185,22 +358,23 @@
                         <a href="./expert_profile.html" class="about-btn">View Profile</a>
                     </div>
                 </div>
+
                 <div class="expert-card">
                     <div class="status-badge online">Online</div>
-                    <video class="expert-video profile-video" autoplay muted loop playsinline style="max-height: 200px;">
+                    <video class="expert-video profile-video" autoplay muted loop playsinline>
                         <source src="./video/video.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <div class="expert-details">
-                        <h3>Sarah Miller</h3>
-                        <p class="expert-title">Numerologist</p>
+                        <h3>Isabella Chen</h3>
+                        <p class="expert-title">Astrologer</p>
                         <div class="rating">
                             <span class="star">⭐</span>
-                            <span>4.8</span>
-                            <span class="reviews">(127)</span>
+                            <span>4.9</span>
+                            <span class="reviews">(178)</span>
                         </div>
                         <div class="price-info">
-                            <span class="price">$75/hr</span>
+                            <span class="price">$85/hr</span>
                             <div class="icons">
                                 <span>📹</span>
                                 <span>📍</span>
@@ -210,22 +384,24 @@
                         <a href="./expert_profile.html" class="about-btn">View Profile</a>
                     </div>
                 </div>
+
+                <!-- Fourth Row -->
                 <div class="expert-card">
-                    <div class="status-badge online">Online</div>
-                    <video class="expert-video profile-video" autoplay muted loop playsinline style="max-height: 200px;">
+                    <div class="status-badge busy">Busy</div>
+                    <video class="expert-video profile-video" autoplay muted loop playsinline>
                         <source src="./video/video.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <div class="expert-details">
-                        <h3>Sarah Miller</h3>
-                        <p class="expert-title">Numerologist</p>
+                        <h3>William Brown</h3>
+                        <p class="expert-title">Tarot Reader</p>
                         <div class="rating">
                             <span class="star">⭐</span>
-                            <span>4.8</span>
-                            <span class="reviews">(127)</span>
+                            <span>4.7</span>
+                            <span class="reviews">(112)</span>
                         </div>
                         <div class="price-info">
-                            <span class="price">$75/hr</span>
+                            <span class="price">$70/hr</span>
                             <div class="icons">
                                 <span>📹</span>
                                 <span>📍</span>
@@ -235,22 +411,23 @@
                         <a href="./expert_profile.html" class="about-btn">View Profile</a>
                     </div>
                 </div>
+
                 <div class="expert-card">
                     <div class="status-badge online">Online</div>
-                    <video class="expert-video profile-video" autoplay muted loop playsinline style="max-height: 200px;">
+                    <video class="expert-video profile-video" autoplay muted loop playsinline>
                         <source src="./video/video.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <div class="expert-details">
-                        <h3>Sarah Miller</h3>
-                        <p class="expert-title">Numerologist</p>
+                        <h3>Charlotte Davis</h3>
+                        <p class="expert-title">Medium</p>
                         <div class="rating">
                             <span class="star">⭐</span>
                             <span>4.8</span>
-                            <span class="reviews">(127)</span>
+                            <span class="reviews">(145)</span>
                         </div>
                         <div class="price-info">
-                            <span class="price">$75/hr</span>
+                            <span class="price">$80/hr</span>
                             <div class="icons">
                                 <span>📹</span>
                                 <span>📍</span>
@@ -260,22 +437,23 @@
                         <a href="./expert_profile.html" class="about-btn">View Profile</a>
                     </div>
                 </div>
+
                 <div class="expert-card">
-                    <div class="status-badge online">Online</div>
-                    <video class="expert-video profile-video" autoplay muted loop playsinline style="max-height: 200px;">
+                    <div class="status-badge offline">Offline</div>
+                    <video class="expert-video profile-video" autoplay muted loop playsinline>
                         <source src="./video/video.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <div class="expert-details">
-                        <h3>Sarah Miller</h3>
-                        <p class="expert-title">Numerologist</p>
+                        <h3>Daniel Wilson</h3>
+                        <p class="expert-title">Clairvoyant</p>
                         <div class="rating">
                             <span class="star">⭐</span>
-                            <span>4.8</span>
-                            <span class="reviews">(127)</span>
+                            <span>4.9</span>
+                            <span class="reviews">(156)</span>
                         </div>
                         <div class="price-info">
-                            <span class="price">$75/hr</span>
+                            <span class="price">$90/hr</span>
                             <div class="icons">
                                 <span>📹</span>
                                 <span>📍</span>
@@ -285,123 +463,123 @@
                         <a href="./expert_profile.html" class="about-btn">View Profile</a>
                     </div>
                 </div>
-                <!-- Add more expert cards as needed -->
             </div>
         </div>
     </main>
 
-    <div class="modal" id="expertModal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h2 id="expertName"></h2>
-            <p id="expertBio"></p>
-        </div>
-    </div>
-
+    <script src="js/profileMenu.js"></script>
     <script>
-    function applyFilters() {
-        const priceRange = document.getElementById('price-range').value;
-        const expertise = document.getElementById('expertise').value;
-        const experience = document.getElementById('experience').value;
-        const location = document.getElementById('location').value;
-
-        const expertCards = document.querySelectorAll('.expert-card');
-        
-        expertCards.forEach(card => {
-            let matchesFilters = true;
-            
-            // Price filter
-            if (priceRange) {
-                const price = parseInt(card.querySelector('.price').textContent.replace('$', ''));
-                const [min, max] = priceRange.split('-').map(num => parseInt(num) || 999999);
-                if (price < min || price > max) matchesFilters = false;
-            }
-
-            // Expertise filter
-            if (expertise && !card.querySelector('.expert-title').textContent.toLowerCase().includes(expertise)) {
-                matchesFilters = false;
-            }
-
-            card.style.display = matchesFilters ? 'block' : 'none';
-        });
-    }
-
-    function resetFilters() {
-        document.getElementById('price-range').value = '';
-        document.getElementById('expertise').value = '';
-        document.getElementById('experience').value = '';
-        document.getElementById('location').value = '';
-        
-        document.querySelectorAll('.expert-card').forEach(card => {
-            card.style.display = 'block';
-        });
-    }
-
-    const expertBios = {
-        'Sarah Miller': 'With over 10 years of experience in numerology, Sarah specializes in life path numbers and destiny calculations. Her unique approach combines traditional numerology with modern interpretations.'
-    };
-
-    function showExpertBio(name) {
-        const modal = document.getElementById('expertModal');
-        const expertName = document.getElementById('expertName');
-        const expertBio = document.getElementById('expertBio');
-        
-        expertName.textContent = name;
-        expertBio.textContent = expertBios[name];
-        modal.style.display = 'block';
-    }
-
-    document.querySelector('.close-btn').onclick = function() {
-        document.getElementById('expertModal').style.display = 'none';
-    }
-
-    window.onclick = function(event) {
-        const modal = document.getElementById('expertModal');
-        if (event.target == modal) {
-            modal.style.display = 'none';
-        }
-    }
-
-    document.querySelector('.crystal-image').addEventListener('click', function() {
-        this.style.transform = 'scale(0.9)';
-        setTimeout(() => {
-            this.style.display = 'none';
-            document.querySelector('.crystal-prompt').style.display = 'none';
-            document.querySelector('.crystal-input').style.display = 'block';
-            document.querySelector('.crystal-btn').style.display = 'block';
-            document.querySelector('.back-btn').style.display = 'block';
-        }, 300);
-    });
-
-    document.querySelector('.back-btn').addEventListener('click', function() {
-        document.querySelector('.crystal-image').style.display = 'block';
-        document.querySelector('.crystal-prompt').style.display = 'block';
-        document.querySelector('.crystal-input').style.display = 'none';
-        document.querySelector('.crystal-btn').style.display = 'none';
-        document.querySelector('.back-btn').style.display = 'none';
-        document.querySelector('.crystal-image').style.transform = 'scale(1)';
-    });
-    </script>
-    <script src="./js/profile.js"></script>
-    <script src="./js/profileMenu.js"></script>
-    <script>
-        // Load sidebar with absolute path
-        fetch('/components/sidebar.html')
-            .then(response => {
-                if (!response.ok) {
-                    return fetch('./components/sidebar.html');
-                }
-                return response;
-            })
+        // Load sidebar
+        fetch('components/sidebar.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('sidebar-container').innerHTML = data;
-                // Initialize profile menu after sidebar is loaded
-                initializeProfileMenu();
+                if (typeof initializeProfileMenu === 'function') {
+                    initializeProfileMenu();
+                }
             })
             .catch(error => {
                 console.error('Error loading sidebar:', error);
             });
+
+        // Initialize select elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const selects = document.querySelectorAll('.filter-group select');
+            selects.forEach(select => {
+                // Force select to be visible
+                select.style.display = 'block';
+                select.style.visibility = 'visible';
+                select.style.opacity = '1';
+                
+                // Add click event listener
+                select.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                });
+            });
+        });
+
+        // Filter panel functionality
+        function toggleFilterPanel() {
+            const panel = document.getElementById('filter-panel');
+            const overlay = document.querySelector('.filter-overlay');
+            
+            if (!panel) {
+                console.error('Filter panel element not found');
+                return;
+            }
+            
+            // Toggle active class
+            panel.classList.toggle('active');
+            
+            // Handle overlay
+            if (panel.classList.contains('active')) {
+                if (!overlay) {
+                    const newOverlay = document.createElement('div');
+                    newOverlay.className = 'filter-overlay';
+                    document.body.appendChild(newOverlay);
+                    // Force a reflow
+                    newOverlay.offsetHeight;
+                    newOverlay.classList.add('active');
+                }
+                
+                // Prevent body scrolling when filter is open
+                document.body.style.overflow = 'hidden';
+            } else {
+                if (overlay) {
+                    overlay.classList.remove('active');
+                    // Remove overlay after transition
+                    setTimeout(() => {
+                        if (overlay && !panel.classList.contains('active')) {
+                            overlay.remove();
+                        }
+                    }, 300);
+                }
+                
+                // Restore body scrolling
+                document.body.style.overflow = '';
+            }
+        }
+
+        function resetFilters() {
+            const selects = document.querySelectorAll('.filter-group select');
+            selects.forEach(select => select.value = '');
+        }
+
+        function applyFilters() {
+            const filters = {
+                sortBy: document.getElementById('sort-by').value,
+                status: document.getElementById('status').value,
+                specialTags: document.getElementById('special-tags').value,
+                specialties: document.getElementById('specialties').value,
+                expertise: document.getElementById('expertise').value,
+                tools: document.getElementById('tools').value
+            };
+
+            // Here you would typically make an API call to filter the experts
+            console.log('Applied filters:', filters);
+            
+            // Close the panel
+            toggleFilterPanel();
+        }
+
+        // Close filter panel when pressing Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const panel = document.getElementById('filter-panel');
+                if (panel && panel.classList.contains('active')) {
+                    toggleFilterPanel();
+                }
+            }
+        });
+
+        // Close filter panel when clicking overlay
+        document.addEventListener('click', function(e) {
+            const overlay = document.querySelector('.filter-overlay');
+            const panel = document.getElementById('filter-panel');
+            if (overlay && e.target === overlay && panel && panel.classList.contains('active')) {
+                toggleFilterPanel();
+            }
+        });
     </script>
 </body>
-</html>
+</html> 

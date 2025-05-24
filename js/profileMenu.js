@@ -1,6 +1,6 @@
 function initializeProfileMenu() {
-    const avatarButton = document.querySelector('.nav-item.avatar');
-    const profileMenu = document.querySelector('.profile-menu');
+    const avatarButton = document.querySelector('.avatar');
+    const profileMenu = document.getElementById('profileMenu');
 
     if (!avatarButton || !profileMenu) {
         console.error('Profile menu elements not found');
@@ -26,7 +26,31 @@ function initializeProfileMenu() {
     // Event listeners
     avatarButton.addEventListener('click', toggleMenu);
     document.addEventListener('click', closeMenuOnClickOutside);
+
+    // Prevent menu from closing when clicking inside it
+    profileMenu.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
 }
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', initializeProfileMenu);
+
+// Add scroll behavior for navbar
+let lastScrollTop = 0;
+const navbar = document.querySelector('.sidebar');
+const scrollThreshold = 50; // Minimum scroll amount before hiding navbar
+
+window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
+        // Scrolling down
+        navbar.classList.add('hidden');
+    } else {
+        // Scrolling up
+        navbar.classList.remove('hidden');
+    }
+    
+    lastScrollTop = scrollTop;
+});

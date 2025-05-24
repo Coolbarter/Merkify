@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Merkify</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Philosopher:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/components/sidebar.css">
+    <link rel="stylesheet" href="../css/settings.css">
+</head>
+<body>
+    <div id="sidebar-container"></div>
+    
+    <main class="settings-container">
+        <h1>Settings</h1>
+        <div class="settings-content">
+            <p>Settings page content will be added here.</p>
+        </div>
+    </main>
+
+    <script src="../js/profileMenu.js"></script>
+    <script>
+        // Load sidebar
+        fetch('../components/sidebar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('sidebar-container').innerHTML = data;
+                if (typeof initializeProfileMenu === 'function') {
+                    initializeProfileMenu();
+                }
+            })
+            .catch(error => {
+                console.error('Error loading sidebar:', error);
+            });
+    </script>
+</body>
+</html> 
